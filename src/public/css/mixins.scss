@@ -1,0 +1,283 @@
+@import 'variables';
+%page{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: $font-size-t12;
+  font-weight: normal;
+}
+
+%clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+;
+  &:after {
+    clear: both;
+  }
+;
+}
+
+%wei-btn {
+  width: calc(100% - 2px);
+  display: inline-block;
+  text-align: center;
+  border: 1px solid $color-white;
+
+  margin: 0 auto;
+}
+
+@mixin fillet($flag) {
+  @if $flag == true {
+    border-radius: $border-radius-base;
+  } @else {
+    border-radius: $border-radius-none;
+  }
+}
+
+@mixin clearfix() {
+  @extend %clearfix;
+}
+
+@mixin overTextH($line:2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin wei-bg-btn($color: $color-333, $bg-color: $color-white, $border-color: $color-ccc,
+ $height: 30px, $line-height: 30px, $font-size: $font-size-t14) {
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    @extend %wei-btn;
+    color: $color;
+    border: 1px solid $border-color;
+    background-color: $bg-color;
+    height: $height;
+    line-height: $line-height;
+    font-size: $font-size;
+  }
+}
+
+@mixin wei-arrow($direction, $color: $color-black, $x: 10px, $y: 2px) {
+  $left: 0;
+  $right: 0;
+  $rotate: 45;
+  position: absolute;
+  display: block;
+  top: 45%;
+  left: 3px;
+  height: $x;
+  width: $y;
+  background-color: $color;
+
+  @if $direction == 'left' {
+    $rotate: -45;
+    $left: 0;
+    $right: 'auto';
+  } @else if $direction == 'right' {
+    $rotate: 45;
+    $left: 'auto';
+    $right: 0;
+  } @else if $direction == 'up' {
+    $rotate: 45;
+    $left: 0;
+    $right: 'auto';
+  } @else if $direction == 'down' {
+    $rotate: 135;
+    $left: 'auto';
+    $right: 0;
+  }
+  transform: rotate(#{$rotate}deg) translateZ(0);
+  -ms-transform: rotate(#{$rotate}deg) translateZ(0);
+  -moz-transform: rotate(#{$rotate}deg) translateZ(0);
+  -webkit-transform: rotate(#{$rotate}deg) translateZ(0);
+  -o-transform: rotate(#{$rotate}deg) translateZ(0);
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: $left;
+    right: $right;
+    top: 0;
+    height: $y;
+    width: $x;
+    background-color: $color;
+  }
+;
+}
+
+@mixin switchBtn($btn-bg-color: $color-white, $bg-color: $color-white,
+$check-bg-color: $color-905641, $btn-radius: 4px, $bg-radius: 4px) {
+    &:before{
+      content: '';
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: $btn-radius;
+      background-color: $btn-bg-color;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+      transition: left .3s;
+    }
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: $bg-color;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: $bg-radius;
+    border: 1px solid $color-ccc;
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    outline: 0;
+    transition: border cubic-bezier(0, 0, 0, 1) .4s, box-shadow cubic-bezier(0, 0, 0, 1) .4s;
+    &:checked{
+      &:before{
+        left: 50%;
+        transition: left .3s;
+      }
+      border-color: $check-bg-color;
+      box-shadow: $check-bg-color 0 0 0 16px inset;
+      background-color: $check-bg-color;
+      transition: border ease .4s, box-shadow ease .4s, background-color ease 1.2s;
+    }
+
+}
+
+@mixin star($color: $color-black) {
+    margin: 50px 0;
+    position: relative;
+    display: block;
+    color: $color;
+    width: 0px;
+    height: 0px;
+    border-right:  100px solid transparent;
+    border-bottom: 70px solid $color;
+    border-left:   100px solid transparent;
+    -moz-transform:    rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -ms-transform:     rotate(35deg);
+    -o-transform:      rotate(35deg);
+
+    &:before {
+      border-bottom: 80px solid $color;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      position: absolute;
+      height: 0;
+      width: 0;
+      top: -45px;
+      left: -65px;
+      display: block;
+      content: '';
+      -webkit-transform: rotate(-35deg);
+      -moz-transform:    rotate(-35deg);
+      -ms-transform:     rotate(-35deg);
+      -o-transform:      rotate(-35deg);
+    }
+    &:after {
+      position: absolute;
+      display: block;
+      color: $color;
+      top: 3px;
+      left: -105px;
+      width: 0px;
+      height: 0px;
+      border-right: 100px solid transparent;
+      border-bottom: 70px solid $color;
+      border-left: 100px solid transparent;
+      -webkit-transform: rotate(-70deg);
+      -moz-transform:    rotate(-70deg);
+      -ms-transform:     rotate(-70deg);
+      -o-transform:      rotate(-70deg);
+      content: '';
+    }
+
+}
+
+@mixin fork($width: 30px, $color: $color-black){
+  position: relative;
+  display: block;
+  width: $width;
+  height:1px;
+  background: $color;
+  line-height: 0;
+  font-size:0;
+  vertical-align: middle;
+  -webkit-transform: rotate(45deg);
+  transform-origin:0 0;
+  &:after{
+    content:'/';
+    position: absolute;
+    top: $width / 2 - 0.5px;
+    left: calc(50% - 0.5px);
+    display:block;
+    width: $width;
+    height:1px;
+    background: $color;
+    -webkit-transform: rotate(-90deg);
+    transform-origin:0 0;
+  }
+}
+
+@mixin addminus($width: calc(50% - 2px)){
+  width: 100%;
+  font-size: 0;
+  text-align: right;
+  a{
+    display: inline-block;
+    border-top: 1px solid $color-f2f2f2;
+    border-bottom: 1px solid $color-f2f2f2;
+    border-left: 1px solid $color-f2f2f2;
+    border-right: none;
+    width: calc(25% - 2px);
+    text-align: center;
+    font-size: $font-size-t12;
+    line-height: 30px;
+    &:last-child{
+      border-left: none;
+      border-right: 1px solid $color-f2f2f2;
+    }
+  }
+  a.dis{
+    color: $color-999;
+  }
+  input.numbers{
+    width: $width;
+    border: 1px solid $color-f2f2f2;
+    text-align: center;
+    font-size: $font-size-t12;
+    line-height: 30px;
+  }
+}
+@mixin checkbox(){
+  position: relative;
+  width: $font-size-t16;
+  height: $font-size-t16;
+  border: 1px solid $color-444;
+  background-color: $color-white;
+  border-radius: 5px;
+  margin-bottom: -.8%;
+  margin-right: 2px;
+  &:checked:after{
+    font-family: "FontAwesome";
+    content:"\f00c";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-1d1d1d;
+  }
+}
