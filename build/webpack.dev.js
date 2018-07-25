@@ -5,7 +5,9 @@ module.exports = merge(common, {
     mode: "development",
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        compress: true,
+        port: 9001
     },
     module: {
         rules: [
@@ -24,6 +26,10 @@ module.exports = merge(common, {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        // new webpack.NamedModulesPlugin(),
+        // new webpack.HotModuleReplacementPlugin()
+    ],
 
 });
