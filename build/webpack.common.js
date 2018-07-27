@@ -13,7 +13,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist/src/resources'),
         // publicPath: process.env.NODE_ENV === 'production' ? '../../' : '/',
-        filename: '[name].js'
+        filename: '[name].js',
+        // publicPath: '/dist/'
     },
     module: {
         rules: [

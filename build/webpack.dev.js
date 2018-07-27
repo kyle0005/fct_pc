@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const webpack = require('webpack');
 //开发模式
 module.exports = merge(common, {
     mode: "development",
@@ -7,7 +8,8 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './dist',
         compress: true,
-        port: 9001
+        port: 9001,
+        // hot: true
     },
     module: {
         rules: [
