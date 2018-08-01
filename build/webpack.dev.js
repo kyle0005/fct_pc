@@ -9,7 +9,6 @@ module.exports = merge(common, {
         contentBase: './dist',
         compress: true,
         port: 9001,
-        // hot: true
     },
     module: {
         rules: [
@@ -30,8 +29,6 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
-        // new webpack.NamedModulesPlugin(),
-        // new webpack.HotModuleReplacementPlugin()
     ],
 
 });

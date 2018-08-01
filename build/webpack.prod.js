@@ -47,15 +47,6 @@ module.exports = merge(common, {
             filename: "[name].css",
             chunkFilename: "[id].css"
         }),
-        // new OptimizeCssAssetsPlugin({
-        //     assetNameRegExp: /\.optimize\.css$/g,
-        //     cssProcessor: require('cssnano'),
-        //     cssProcessorOptions: { safe: true, discardComments: { removeAll: true } },
-        //     canPrint: true
-        // }),
-        // new UglifyJSPlugin({
-        //     sourceMap: true
-        // }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         })

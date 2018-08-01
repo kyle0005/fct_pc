@@ -8,10 +8,15 @@ const pages =  utils.getMultiEntry('./src/resources/views/**/**/*.html');
 module.exports = {
     entry: entries,
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['dist/'], {
+            root:     path.resolve(__dirname, '../'),
+            // exclude:  ['shared.js'],
+            verbose:  true,
+            dry:      false
+        }),
     ],
     output: {
-        path: path.resolve(__dirname, '../dist/src/resources'),
+        path: path.resolve(__dirname, '../dist'),
         // publicPath: process.env.NODE_ENV === 'production' ? '../../' : '/',
         filename: '[name].js',
         // publicPath: '/dist/'
@@ -24,9 +29,9 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[path][name].[ext]',
-                            publicPath: '/',
-                            outputPath: '../../'
+                            name: '[name].[ext]',
+                            publicPath: '../../../public/img/',           /* 生成dist目录中css里面的图片的url地址前缀 */
+                            outputPath: 'public/img/'        /* 图片输出到dist的目录前缀 */
                         }
                     }
 
@@ -34,7 +39,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                // exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules\/(?!(swiper)\/).*/,
                 use:
                     [
                         {
