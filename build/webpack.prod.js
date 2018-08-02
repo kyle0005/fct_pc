@@ -7,6 +7,7 @@ const common = require('./webpack.common.js');
 //生产模式
 module.exports = merge(common, {
     mode: "production",
+    devtool: 'source-map',
     optimization: {
         minimizer: [
             new UglifyJSPlugin({

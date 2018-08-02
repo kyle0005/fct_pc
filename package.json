@@ -2,6 +2,11 @@
   "name": "fct_pc",
   "version": "1.0.0",
   "description": "",
+  "sideEffects": [
+    "@babel/polyfill",
+    "*.css",
+    "*.scss"
+  ],
   "scripts": {
     "build": "webpack --config build/webpack.prod.js",
     "dev": "webpack-dev-server --open --config build/webpack.dev.js"
