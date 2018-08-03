@@ -954,4 +954,347 @@
 
     }
   }
+  .recommend{
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    height: 836px;
+    .title{
+      position: relative;
+      width: 1400px;
+      margin: 0 auto 16px;
+      .m{
+        margin-right: 16px;
+        display: inline-block;
+        height: 26px;
+        line-height: $font-size-t26;
+        font-size: $font-size-t26;
+        color: $color-333;
+      }
+      .s{
+        display: inline-block;
+        height: 12px;
+        line-height: $font-size-t12;
+        font-size: $font-size-t12;
+        color: $color-929BB6;
+      }
+      .more{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        display: inline-block;
+        padding-right: 22px;
+        transform: translateY(-50%);
+        font-size: $font-size-t16;
+        line-height: 22px;
+        background: url("../../../../public/img/more.png") no-repeat center right;
+        background-size: 16px 16px;
+      }
+    }
+    .main{
+      position: relative;
+      width: 100%;
+      .left{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 551px;
+        height: 734px;
+        background-color: $color-fcfcfc;
+        img{
+          width: 551px;
+          height: 551px;
+        }
+        .sale{
+          position: absolute;
+          right: 20px;
+          top: 20px;
+          width: 48px;
+          height: 24px;
+          font-size: $font-size-t14;
+          line-height: 24px;
+          text-align: center;
+          color: $color-white;
+          background-color: $color-8B572A;
+        }
+        .ti{
+          position: absolute;
+          left: 50%;
+          top: 581px;
+          transform: translateX(-50%);
+          width: 480px;
+          font-size: $font-size-t20;
+          line-height: 28px;
+          color: $color-333;
+          text-align: center;
+        }
+        .vti{
+          position: absolute;
+          left: 50%;
+          top: 625px;
+          transform: translateX(-50%);
+          width: 480px;
+          font-size: $font-size-t20;
+          line-height: 28px;
+          color: $color-999;
+        }
+      }
+      .right{
+        position: relative;
+        margin-left: 559px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        .items{
+          position: relative;
+          -moz-box-flex: 1.0; /* Firefox */
+          -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+          box-flex: 1.0;
+          width: 275px;
+          height: 363px;
+          background-color: $color-fcfcfc;
+          margin-bottom: 8px;
+          margin-right: 8px;
+          &:nth-child(3n){
+            margin-right: 0;
+          }
+          img{
+            width: 275px;
+            height: 275px;
+          }
+          .sale{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 48px;
+            height: 24px;
+            font-size: $font-size-t14;
+            line-height: 24px;
+            text-align: center;
+            color: $color-white;
+            background-color: $color-8B572A;
+          }
+          .ti{
+            position: absolute;
+            left: 50%;
+            bottom: 50px;
+            transform: translateX(-50%);
+            width: 224px;
+            font-size: $font-size-t16;
+            line-height: 22px;
+            color: $color-333;
+            text-align: center;
+          }
+          .vti{
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            width: 224px;
+            font-size: $font-size-t16;
+            line-height: 22px;
+            color: $color-999;
+          }
+        }
+      }
+    }
+  }
+  .encyclopedia{
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    height: 502px;
+    .title{
+      width: 300px;
+      margin-bottom: 16px;
+      .m{
+        margin-right: 16px;
+        display: inline-block;
+        height: 26px;
+        line-height: $font-size-t26;
+        font-size: $font-size-t26;
+        color: $color-333;
+      }
+      .s{
+        display: inline-block;
+        height: 12px;
+        line-height: $font-size-t12;
+        font-size: $font-size-t12;
+        color: $color-929BB6;
+      }
+    }
+    .main{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      .items{
+        -moz-box-flex: 1.0; /* Firefox */
+        -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+        box-flex: 1.0;
+        width: 450px;
+        height: 400px;
+        .top{
+          position: relative;
+          width: 100%;
+          height: 57px;
+          line-height: 57px;
+          background-color: $color-fafafa;
+          .l{
+            margin-left: 24px;
+            display: inline-block;
+            font-size: $font-size-t18;
+            color: $color-333;
+          }
+          .r{
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            display: inline-block;
+            padding-right: 22px;
+            transform: translateY(-50%);
+            font-size: $font-size-t16;
+            color: $color-666;
+            line-height: 22px;
+            background: url("../../../../public/img/more.png") no-repeat center right;
+            background-size: 16px 16px;
+          }
+        }
+        .bottom{
+          width: calc(100% - 2px);
+          height: 342px;
+          border-left: 1px solid $color-fafafa;
+          border-right: 1px solid $color-fafafa;
+          border-bottom: 1px solid $color-fafafa;
+          .industry{
+            width: 402px;
+            margin: 8px auto 0;
+            .it{
+              width: 100%;
+              border-bottom: 1px solid $color-e6e6e6;
+              .link{
+                display: block;
+                font-size: $font-size-t14;
+                line-height: $font-size-t14;
+                color: $color-333;
+                padding: 16px 0;
+              }
+              &:last-child{
+                border-bottom: none;
+              }
+            }
+          }
+          .pug{
+            width: 402px;
+            margin: 8px auto 0;
+            img{
+              width: 402px;
+              height: 143px;
+            }
+            .pug-title{
+              margin: 8px 0;
+              font-size: $font-size-t16;
+              line-height: 22px;
+            }
+            .pug-detail{
+              position: relative;
+              width: 375px;
+              padding-right: 27px;
+              margin-bottom: 16px;
+              font-size: $font-size-t14;
+              line-height: 22px;
+              text-align: left;
+              letter-spacing: 0;
+              .det{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                display: block;
+                color: $color-8B572A;
+                font-size: $font-size-t14;
+                line-height: 20px;
+                text-decoration: underline;
+              }
+            }
+            .pugs{
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: wrap;
+              .pugs-items {
+                -moz-box-flex: 1.0; /* Firefox */
+                -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+                box-flex: 1.0;
+                display: block;
+                background-color: $color-fafafa;
+                width: 94px;
+                height: 36px;
+                font-size: $font-size-t14;
+                line-height: 36px;
+                text-align: center;
+                margin-bottom: 8px;
+              }
+            }
+
+          }
+          .pot{
+            width: 402px;
+            margin: 8px auto 0;
+            img{
+              width: 402px;
+              height: 143px;
+            }
+            .pug-title{
+              margin: 8px 0;
+              font-size: $font-size-t16;
+              line-height: 22px;
+            }
+            .pug-detail{
+              position: relative;
+              width: 375px;
+              padding-right: 27px;
+              margin-bottom: 16px;
+              font-size: $font-size-t14;
+              line-height: 22px;
+              text-align: left;
+              letter-spacing: 0;
+              .det{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                display: block;
+                color: $color-8B572A;
+                font-size: $font-size-t14;
+                line-height: 20px;
+                text-decoration: underline;
+              }
+            }
+            .pugs{
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: wrap;
+              .pugs-items {
+                -moz-box-flex: 1.0; /* Firefox */
+                -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+                box-flex: 1.0;
+                display: block;
+                background-color: $color-fafafa;
+                width: 197px;
+                height: 36px;
+                font-size: $font-size-t14;
+                line-height: 36px;
+                text-align: center;
+                margin-bottom: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
