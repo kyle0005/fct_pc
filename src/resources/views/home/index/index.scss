@@ -1,145 +1,8 @@
 @import "./src/public/css/common";
+@import "./src/public/css/header";
+@import "./src/public/css/footer";
 .index-container{
   @extend %page;
-  .head{
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    background-color: $color-333;
-    .inner{
-      position: relative;
-      margin: 0 auto;
-      width: 1400px;
-      height: 100%;
-      .l{
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        .title{
-          color: $color-white;
-          font-size: $font-size-t14;
-        }
-        .tip{
-          display: inline-block;
-          padding-left: 46px;
-          background: url("../../../../public/img/icon_notice.png") no-repeat 25px center;
-          background-size: 16px;
-          color: $color-C99F4F;
-          font-size: $font-size-t14;
-        }
-      }
-      .r{
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        font-size: 0;
-        .log, .reg{
-          position: relative;
-          display: inline-block;
-          color: $color-white;
-          height: 100%;
-          padding: 0 6px;
-          font-size: $font-size-t14;
-          &:after{
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 14px;
-            background-color: $color-white;
-          }
-        }
-        .ord{
-          display: inline-block;
-          height: 100%;
-          padding: 0 6px;
-          color: $color-white;
-          font-size: $font-size-t14;
-        }
-      }
-    }
-  }
-  .logo{
-    position: relative;
-    margin: 0 auto;
-    width: 1400px;
-    height: 106px;
-    background: url("../../../../public/img/logo.png") no-repeat center center;
-    background-size: 150px 46px;
-    .search-container{
-      position: absolute;
-      right: 324px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 200px;
-      height: 22px;
-      border-bottom: 1px solid $color-999;
-      .search{
-        width: 164px;
-        height: 14px;
-        line-height: $font-size-t14;
-        border: none;
-        color: $color-ccc;
-        font-size: $font-size-t14;
-      }
-      .sub{
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        display: inline-block;
-        width: 22px;
-        height: 22px;
-        background: url("../../../../public/img/icon_search.png") no-repeat center center;
-        background-size: 22px 22px;
-      }
-    }
-  }
-  .tabs{
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px auto 0;
-    width: 782px;
-    height: 38px;
-    li.items{
-      position: relative;
-      -moz-box-flex: 1.0; /* Firefox */
-      -webkit-box-flex: 1.0; /* Safari 和 Chrome */
-      box-flex: 1.0;
-      width: 64px;
-      height: 38px;
-      &:first-child{
-        width: 32px;
-      }
-      .l{
-        display: block;
-        width: 100%;
-        height: 16px;
-        line-height: $font-size-t16;
-        font-size: $font-size-t16;
-        color: $color-999;
-      }
-    }
-    li.items.chosen{
-      &:after{
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background-color: $color-8B572A;
-      }
-      .l{
-        color: $color-333;
-      }
-    }
-  }
   .banner{
     position: relative;
     width: 100%;
@@ -211,14 +74,14 @@
         margin-right: 16px;
         display: inline-block;
         height: 26px;
-        line-height: $font-size-t26;
+        line-height: 26px;
         font-size: $font-size-t26;
         color: $color-white;
       }
       .s{
         display: inline-block;
         height: 12px;
-        line-height: $font-size-t12;
+        line-height: 12px;
         font-size: $font-size-t12;
         color: $color-929BB6;
       }
@@ -292,7 +155,7 @@
             position: relative;
             z-index: 1;
             font-size: $font-size-t24;
-            line-height: $font-size-t24;
+            line-height: 24px;
             margin: 30px 0 20px 30px;
             color: $color-333;
           }
@@ -379,7 +242,7 @@
           position: relative;
           z-index: 1;
           font-size: $font-size-t24;
-          line-height: $font-size-t24;
+          line-height: 24px;
           margin: 30px 0 20px 30px;
           color: $color-333;
           .v{
@@ -387,7 +250,7 @@
             margin-left: 8px;
             color: $color-999;
             font-size: $font-size-t16;
-            line-height: $font-size-t22;
+            line-height: 22px;
           }
         }
         .countdown{
@@ -458,14 +321,14 @@
         margin-right: 16px;
         display: inline-block;
         height: 26px;
-        line-height: $font-size-t26;
+        line-height: 26px;
         font-size: $font-size-t26;
         color: $color-333;
       }
       .s{
         display: inline-block;
         height: 12px;
-        line-height: $font-size-t12;
+        line-height: 12px;
         font-size: $font-size-t12;
         color: $color-929BB6;
       }
@@ -594,14 +457,14 @@
         margin-right: 16px;
         display: inline-block;
         height: 26px;
-        line-height: $font-size-t26;
+        line-height: 26px;
         font-size: $font-size-t26;
         color: $color-333;
       }
       .s{
         display: inline-block;
         height: 12px;
-        line-height: $font-size-t12;
+        line-height: 12px;
         font-size: $font-size-t12;
         color: $color-929BB6;
       }
@@ -732,14 +595,14 @@
         margin-right: 16px;
         display: inline-block;
         height: 26px;
-        line-height: $font-size-t26;
+        line-height: 26px;
         font-size: $font-size-t26;
         color: $color-333;
       }
       .s{
         display: inline-block;
         height: 12px;
-        line-height: $font-size-t12;
+        line-height: 12px;
         font-size: $font-size-t12;
         color: $color-929BB6;
       }
@@ -824,14 +687,14 @@
         margin-right: 16px;
         display: inline-block;
         height: 26px;
-        line-height: $font-size-t26;
+        line-height: 26px;
         font-size: $font-size-t26;
         color: $color-333;
       }
       .s{
         display: inline-block;
         height: 12px;
-        line-height: $font-size-t12;
+        line-height: 12px;
         font-size: $font-size-t12;
         color: $color-929BB6;
       }
@@ -887,19 +750,19 @@
               display: inline-block;
               color: $color-333;
               font-size: $font-size-t20;
-              line-height: $font-size-t20;
+              line-height: 20px;
               margin: 0 10px 8px 16px;
             }
             .en{
               display: inline-block;
               color: $color-ccc;
               font-size: $font-size-t14;
-              line-height: $font-size-t14;
+              line-height: 14px;
             }
             .d{
               color: $color-666;
               font-size: $font-size-t14;
-              line-height: $font-size-t18;
+              line-height: 18px;
               margin: 0 16px;
               height: 60px;
             }
@@ -967,14 +830,14 @@
         margin-right: 16px;
         display: inline-block;
         height: 26px;
-        line-height: $font-size-t26;
+        line-height: 26px;
         font-size: $font-size-t26;
         color: $color-333;
       }
       .s{
         display: inline-block;
         height: 12px;
-        line-height: $font-size-t12;
+        line-height: 12px;
         font-size: $font-size-t12;
         color: $color-929BB6;
       }
@@ -1112,14 +975,14 @@
         margin-right: 16px;
         display: inline-block;
         height: 26px;
-        line-height: $font-size-t26;
+        line-height: 26px;
         font-size: $font-size-t26;
         color: $color-333;
       }
       .s{
         display: inline-block;
         height: 12px;
-        line-height: $font-size-t12;
+        line-height: 12px;
         font-size: $font-size-t12;
         color: $color-929BB6;
       }
@@ -1177,7 +1040,7 @@
               .link{
                 display: block;
                 font-size: $font-size-t14;
-                line-height: $font-size-t14;
+                line-height: 14px;
                 color: $color-333;
                 padding: 16px 0;
               }
