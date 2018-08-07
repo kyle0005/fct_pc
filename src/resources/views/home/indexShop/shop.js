@@ -2,9 +2,11 @@ import 'swiper/dist/css/swiper.css';
 import './shop.scss';
 import "@babel/polyfill";
 import common from '../../../../public/js/common';
+/*import ajax from '../../../../public/js/ajax';
+ajax.ajaxGet({});*/
 let pics = config.pics;
 common.swip(
-    'photo-container', false, true, 1,
+    'photo-container', false, true, 1, 'fade',
     {},
     {
         el: '.swiper-pagination',

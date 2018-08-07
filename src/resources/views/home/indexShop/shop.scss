@@ -22,7 +22,7 @@
   .detail{
     position: relative;
     width: 1400px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     .photo-swp{
       position: relative;
       width: 500px;
@@ -224,13 +224,22 @@
       }
       .sub{
         .buy{
-
+          @include wei-bg-btn(250px, 44px, $font-size-t14, $color-white, $color-333, $color-333, 0);
+          margin-right: 10px;
+          text-align: center;
         }
         .cart{
-
+          @include wei-bg-btn(250px, 44px, $font-size-t14, $color-333, $color-white, $color-333, 0);
+          margin-right: 10px;
+          background: url("../../../../public/img/shop_cart.png") no-repeat 77px center;
+          background-size: 17px 17px;
+          text-indent: 102px;
         }
         .fav{
-
+          @include wei-bg-btn(100px, 44px, $font-size-t14, $color-333, $color-white, $color-333, 0);
+          background: url("../../../../public/img/shop_fav.png") no-repeat 25px center;
+          background-size: 13px 13px;
+          text-indent: 46px;
         }
       }
     }

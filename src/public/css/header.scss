@@ -91,6 +91,10 @@
         display: inline-block;
         width: 22px;
         height: 22px;
+        outline: none;
+        border: none;
+        box-shadow: none;
+        -webkit-tap-highlight-color:transparent;
         background: url("../../../../public/img/icon_search.png") no-repeat center center;
         background-size: 22px 22px;
       }

@@ -1,9 +1,10 @@
 import swp from 'swiper';
-exports.swip = (name, autoplay, loop, slidesPerView, navigation, pagination, on) => {
+exports.swip = (name, autoplay, loop, slidesPerView, effect, navigation, pagination, on) => {
     new swp('.' + name, {
         autoplay: autoplay,
         loop : loop,
         slidesPerView: slidesPerView,
+        effect: effect,
         navigation: navigation,
         pagination: pagination,
         on:on
@@ -47,4 +48,3 @@ exports.countdowm = (timestamp, succ, end, hasDay) => {
 exports.arr = (n) => {
     console.log([1,2,3].map(n => n + 1))
 };
-
