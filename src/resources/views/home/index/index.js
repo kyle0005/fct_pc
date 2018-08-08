@@ -7,14 +7,17 @@ import b_2 from '../../../../public/img/b_2.png';
 import b_3 from '../../../../public/img/b_3.png';
 
 import t_1 from '../../../../public/img/test4.jpg';
-import t_2 from '../../../../public/img/test5.jpg';
-import t_3 from '../../../../public/img/test6.jpg';
+import t_2 from '../../../../public/img/test5.png';
+import t_3 from '../../../../public/img/test6.png';
 
 import a_1 from '../../../../public/img/auc1.png';
 import a_2 from '../../../../public/img/auc2.png';
 
 common.swip(
-    'swiper-container', true, true, 1,
+    'swiper-container', true, true, 1, 'slide',
+    {
+        crossFade: false,
+    },
     {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -39,7 +42,10 @@ common.swip(
 );
 
 common.swip(
-    'presale-container', false, true, 1,
+    'presale-container', false, true, 1, 'slide',
+    {
+        crossFade: false,
+    },
     {},
     {
         el: '.swiper-pagination',
@@ -61,7 +67,10 @@ common.swip(
 );
 
 common.swip(
-    'opt-container', false, false, 4,
+    'opt-container', false, false, 4, 'slide',
+    {
+        crossFade: false,
+    },
     {
         nextEl: '.opt-swiper-button-next',
         prevEl: '.opt-swiper-button-prev',
@@ -75,7 +84,10 @@ common.swip(
 );
 
 common.swip(
-    'act-container', false, false, 4,
+    'act-container', false, false, 4, 'slide',
+    {
+        crossFade: false,
+    },
     {
         nextEl: '.act-swiper-button-next',
         prevEl: '.act-swiper-button-prev',

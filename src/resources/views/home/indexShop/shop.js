@@ -7,6 +7,9 @@ ajax.ajaxGet({});*/
 let pics = config.pics;
 common.swip(
     'photo-container', false, true, 1, 'fade',
+    {
+        crossFade: true,
+    },
     {},
     {
         el: '.swiper-pagination',
@@ -26,3 +29,26 @@ common.swip(
         },
     }
 );
+
+document.querySelector('.js-inp').value = 1;
+document.querySelector('.js-add').addEventListener('click', (e) => {
+    let _tm = document.querySelector('.js-inp').value;
+    document.querySelector('.js-inp').value = parseInt(_tm) + 1;
+});
+
+document.querySelector('.js-minus').addEventListener('click', (e) => {
+    let _tm = document.querySelector('.js-inp').value;
+    if(_tm > 1){
+        document.querySelector('.js-inp').value = _tm - 1;
+    }
+
+});
+
+Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) => {
+    el.addEventListener('click', (e) => {
+        el.classList.remove(className);
+        if(!el.classList.contains('chosen')){
+            el.classList.add('chosen');
+        }
+    });
+});

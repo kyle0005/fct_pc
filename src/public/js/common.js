@@ -1,10 +1,11 @@
 import swp from 'swiper';
-exports.swip = (name, autoplay, loop, slidesPerView, effect, navigation, pagination, on) => {
+exports.swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on) => {
     new swp('.' + name, {
         autoplay: autoplay,
         loop : loop,
         slidesPerView: slidesPerView,
         effect: effect,
+        fadeEffect: fadeEffect,
         navigation: navigation,
         pagination: pagination,
         on:on
