@@ -46,7 +46,9 @@ document.querySelector('.js-minus').addEventListener('click', (e) => {
 
 Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) => {
     el.addEventListener('click', (e) => {
-        el.classList.remove(className);
+        Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (e, index) => {
+            e.classList.remove('chosen');
+        });
         if(!el.classList.contains('chosen')){
             el.classList.add('chosen');
         }
