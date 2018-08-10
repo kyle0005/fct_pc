@@ -1,6 +1,6 @@
 import 'swiper/dist/css/swiper.css';
 import './list.scss';
-import "@babel/polyfill";
+// import "@babel/polyfill";
 import common from '../../../../public/js/common';
 common.swip(
     'swiper-container', true, true, 1, 'slide',

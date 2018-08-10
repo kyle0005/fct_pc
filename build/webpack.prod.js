@@ -4,6 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const common = require('./webpack.common.js');
+// const CompressionPlugin = require("compression-webpack-plugin")
 //生产模式
 module.exports = merge(common, {
     mode: "production",
@@ -13,6 +14,15 @@ module.exports = merge(common, {
             new UglifyJSPlugin({
                 cache: true,
                 parallel: true,
+                uglifyOptions: {
+                    output: {
+                        comments: false,
+                        beautify: false,
+                    },
+                    compress: {
+                        warnings: false
+                    },
+                },
                 sourceMap: true // set to true if you want JS source maps
             }),
             new OptimizeCssAssetsPlugin({})
@@ -50,6 +60,15 @@ module.exports = merge(common, {
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
-        })
+        }),
+/*        new CompressionPlugin({
+            asset: '[path].gz[query]', //目标资源名称。[file] 会被替换成原资源。[path] 会被替换成原资源路径，[query] 替换成原查询字符串
+            algorithm: 'gzip',//算法
+            test: new RegExp(
+                '\\.(js|css)$'    //压缩 js 与 css
+            ),
+            threshold: 10240,//只处理比这个值大的资源。按字节计算
+            minRatio: 0.8//只有压缩率比这个值小的资源才会被处理
+        })*/
     ]
 });
