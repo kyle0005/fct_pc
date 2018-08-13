@@ -1,0 +1,67 @@
+@import "./src/public/css/common";
+@import "./src/public/css/header";
+@import "./src/public/css/footer";
+.shop-container{
+  @extend %page;
+  .banner{
+    position: relative;
+    width: 100%;
+    padding-bottom: calc(520/1920*100%);
+    .inner{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      .swiper-container{
+        width: 100%;
+        height: 100%;
+        .l-items{
+          display: block;
+          width: 100%;
+          height: 100%;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .swiper-button-prev.swiper-button-333,
+        .swiper-container-rtl .swiper-button-next.swiper-button-333 {
+          width: 28px;
+          height: 50px;
+          left: 150px;
+          right: auto;
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23333333'%2F%3E%3C%2Fsvg%3E");
+          background-size: 28px 50px;
+        }
+        .swiper-button-next.swiper-button-333,
+        .swiper-container-rtl .swiper-button-prev.swiper-button-333 {
+          width: 28px;
+          height: 50px;
+          left: auto;
+          right: 150px;
+          background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23333333'%2F%3E%3C%2Fsvg%3E");
+          background-size: 28px 50px;
+        }
+        .swiper-pagination-bullets{
+          bottom: 47px;
+        }
+        .swiper-pagination-bullet{
+          display: inline-block;
+          width: 44px;
+          height: 3px;
+          margin: 0 5px;
+          border-radius: 0;
+          background: $color-999;
+          opacity: 1;
+        }
+        .swiper-pagination-bullet-active{
+          background: $color-white;
+        }
+      }
+    }
+  }
+  .main{
+    width: 1400px;
+    margin: 47px auto 0;
+
+  }
+}

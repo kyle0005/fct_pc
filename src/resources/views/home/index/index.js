@@ -1,18 +1,8 @@
 import 'swiper/dist/css/swiper.css';
 import './index.scss';
 import "@babel/polyfill";
+import imgs from '../../../../public/js/loadImg';
 import common from '../../../../public/js/common';
-import b_1 from '../../../../public/img/b_1.png';
-import b_2 from '../../../../public/img/b_2.png';
-import b_3 from '../../../../public/img/b_3.png';
-
-import t_1 from '../../../../public/img/test4.jpg';
-import t_2 from '../../../../public/img/test5.png';
-import t_3 from '../../../../public/img/test6.png';
-
-import a_1 from '../../../../public/img/auc1.png';
-import a_2 from '../../../../public/img/auc2.png';
-
 common.swip(
     'swiper-container', true, true, 1, 'slide',
     {
@@ -114,6 +104,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-counttime'), (el) =>
 });
 
 // common.arr(5)
+/*
 const promise = new Promise(function(resolve, reject) {
 
     if (true){
@@ -126,4 +117,4 @@ promise.then(function(value) {
     // console.log('success')
 }, function(error) {
     // console.log('failure')
-});
+});*/
