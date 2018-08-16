@@ -92,29 +92,8 @@ common.swip(
 
 Array.prototype.forEach.call(document.querySelectorAll('.js-counttime'), (el) => {
     common.countdowm(el.getAttribute('data-timenum'), (time_obj) => {
-        if(el.querySelector('.js-d')){
-            el.querySelector('.js-d').innerHTML = time_obj.day;
-        }
-        el.querySelector('.js-h').innerHTML = time_obj.hour;
-        el.querySelector('.js-m').innerHTML = time_obj.min;
-        el.querySelector('.js-s').innerHTML = time_obj.sec;
+        common.common.countSuc(time_obj, el);
     }, (time_obj) => {
-        console.log('end')
+        common.common.countEnd(time_obj, el);
     }, !!el.querySelector('.js-d'));
 });
-
-// common.arr(5)
-/*
-const promise = new Promise(function(resolve, reject) {
-
-    if (true){
-        resolve(value);
-    } else {
-        reject(error);
-    }
-});
-promise.then(function(value) {
-    // console.log('success')
-}, function(error) {
-    // console.log('failure')
-});*/

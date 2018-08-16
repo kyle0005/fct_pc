@@ -4,7 +4,9 @@ import "@babel/polyfill";
 import common from '../../../../public/js/common';
 /*import ajax from '../../../../public/js/ajax';
 ajax.ajaxGet({});*/
-let pics = config.pics;
+let shop = {
+    pics: config.pics
+};
 common.swip(
     'photo-container', false, true, 1, 'fade',
     {
@@ -16,7 +18,7 @@ common.swip(
         clickable :true,
         type: 'bullets',
         renderBullet: function (index, className) {
-            return '<span class="en-pagination ' + className + '"><img src="' + pics[index] + '" class="bu-img"/></span>';
+            return '<span class="en-pagination ' + className + '"><img src="' + shop.pics[index] + '" class="bu-img"/></span>';
         },
         lazy: {
             loadPrevNext: true,
@@ -54,3 +56,12 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) =
         }
     });
 });
+
+Array.prototype.forEach.call(document.querySelectorAll('.js-counttime'), (el) => {
+    common.countdowm(el.getAttribute('data-timenum'), (time_obj) => {
+        common.common.countSuc(time_obj, el);
+    }, (time_obj) => {
+        common.common.countEnd(time_obj, el);
+    }, !!el.querySelector('.js-d'));
+});
+

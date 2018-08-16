@@ -80,8 +80,8 @@
       width: 736px;
       height: 420px;
       .product{
-        width: 50%;
-        margin-bottom: 24px;
+        width: 70%;
+        margin-bottom: 18px;
         .title{
           font-size: $font-size-t30;
           line-height: 30px;
@@ -103,7 +103,25 @@
           font-size: $font-size-t16;
           line-height: 16px;
           color: $color-999;
-          margin-bottom: 30px;
+          margin-bottom: 15px;
+        }
+        .esp{
+          width: 456px;
+          height: 36px;
+          line-height: 36px;
+          background-color: $color-8B572A;
+          color: $color-white;
+          margin-bottom: 8px;
+          font-size: $font-size-t16;
+          .n{
+            display: inline-block;
+            margin: 0 8px 0 16px;
+            font-size: $font-size-t18;
+          }
+          .p{
+            display: inline-block;
+            margin-right: 8px;
+          }
         }
         .price{
           font-size: $font-size-t30;
@@ -112,6 +130,7 @@
           margin-bottom: 8px;
         }
         .tips{
+          margin-bottom: 17px;
           .tip{
             display: inline-block;
             background: url("../../../../public/img/icon_yes.png") no-repeat center left;
@@ -120,6 +139,47 @@
             line-height: 14px;
             color: $color-999;
             padding: 0 20px;
+          }
+        }
+        .coupon{
+          .get-title{
+            display: inline-block;
+            font-size: $font-size-t14;
+            line-height: 16px;
+            color: $color-666;
+          }
+          .coups{
+            position: relative;
+            display: inline-block;
+            margin-left: 6px;
+            font-size: $font-size-t13;
+            line-height: 18px;
+            height: 16px;
+            color: $color-8B572A;
+            padding: 0 10px;
+            border-top: 1px solid $color-8B572A;
+            border-bottom: 1px solid $color-8B572A;
+          /*  background:url("../../../../public/img/icon_yes.png") center left no-repeat,
+            url("../../../../public/img/icon_yes.png") center right no-repeat;*/
+            &:after{
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 2.25px;
+              height: 100%;
+              background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1.25px, $color-8B572A 1.25px, $color-8B572A 2.25px, $color-white 2.25px, $color-white, $color-white 3px, $color-white);
+              background-image: -moz-radial-gradient(circle, $color-white, $color-white 1.25px, $color-8B572A 1.25px, $color-8B572A 2.25px, $color-white 2.25px, $color-white, $color-white 3px, $color-white);
+              background-image: radial-gradient(circle, $color-white, $color-white 1.25px, $color-8B572A 1.25px, $color-8B572A 2.25px, $color-white 2.25px, $color-white, $color-white 3px, $color-white);
+              background-size: 4.5px 4.5px;
+            }
+          }
+          .get-link{
+            display: inline-block;
+            margin-left: 10px;
+            font-size: $font-size-t14;
+            line-height: 16px;
+            color: $color-8B572A;
           }
         }
       }

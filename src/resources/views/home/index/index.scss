@@ -312,6 +312,100 @@
           height: 282px;
         }
       }
+      .presale-s{
+        position: relative;
+        -moz-box-flex: 1.0; /* Firefox */
+        -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+        box-flex: 1.0;
+        width: 512px;
+        height: 400px;
+        overflow: hidden;
+        background: $color-fffafa;
+        box-shadow: 0 5px 30px 0 $color-e3e3e3;
+        .ti{
+          display: block;
+          position: relative;
+          z-index: 1;
+          font-size: $font-size-t24;
+          line-height: 24px;
+          margin: 30px 0 20px 30px;
+          color: $color-333;
+        }
+        .det{
+          display: block;
+          position: relative;
+          z-index: 1;
+          margin: 0 0 0 30px;
+          color: $color-666;
+          height: 30px;
+          line-height: 30px;
+          font-size: $font-size-t16;
+        }
+        .pro{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 440px;
+          height: 314px;
+        }
+        .quota{
+          position: absolute;
+          bottom: 30px;
+          left: 30px;
+          z-index: 1;
+          width: 82px;
+          height: 32px;
+          line-height: 32px;
+          color: $color-d3b167;
+          text-align: center;
+          font-size: $font-size-t14;
+        }
+
+      }
+      .a-auction-s{
+        -moz-box-flex: 1.0; /* Firefox */
+        -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+        box-flex: 1.0;
+        width: 512px;
+        height: 400px;
+        overflow: hidden;
+        background: $color-F9F9F9;
+        box-shadow: 0 5px 30px 0 $color-e3e3e3;
+        .ti{
+          display: block;
+          position: relative;
+          z-index: 1;
+          font-size: $font-size-t24;
+          line-height: 24px;
+          margin: 30px 0 20px 30px;
+          color: $color-333;
+          .v{
+            display: inline-block;
+            margin-left: 8px;
+            color: $color-999;
+            font-size: $font-size-t16;
+            line-height: 22px;
+          }
+        }
+        .det{
+          display: block;
+          position: relative;
+          z-index: 1;
+          margin: 0 0 0 30px;
+          color: $color-666;
+          height: 30px;
+          line-height: 30px;
+          font-size: $font-size-t16;
+        }
+        .pro{
+          position: absolute;
+          bottom: 44px;
+          right: 4px;
+          width: 382px;
+          height: 282px;
+        }
+      }
     }
   }
   .new{
