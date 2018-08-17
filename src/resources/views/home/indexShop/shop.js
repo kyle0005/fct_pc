@@ -65,3 +65,10 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-counttime'), (el) =>
     }, !!el.querySelector('.js-d'));
 });
 
+document.querySelector('.js-get-link').addEventListener('click', (e) => {
+    document.querySelector('.js-pop-coupon').classList.add('show');
+});
+
+document.querySelector('.js-close').addEventListener('click', (e) => {
+    document.querySelector('.js-pop-coupon').classList.remove('show');
+});
