@@ -157,34 +157,55 @@
             height: 16px;
             color: $color-8B572A;
             padding: 0 10px;
-            border: 1px solid $color-8B572A;
-            &:before{
-              content: '';
+            border-top: 1px solid $color-8B572A;
+            border-bottom: 1px solid $color-8B572A;
+            .bor-bef{
               position: absolute;
               top: 50%;
               left: 0;
+              z-index: 2;
               transform: translateY(-50%);
-              width: 7px;
+              width: 2.5px;
               height: 90%;
-              background-image: -webkit-radial-gradient(circle, $color-white, $color-white 5px, $color-8B572A 5px, $color-8B572A 6px, $color-white);
-              background-image: -moz-radial-gradient(circle, $color-white, $color-white 5px, $color-8B572A 5px, $color-8B572A 6px, $color-white);
-              background-image: radial-gradient(circle, $color-white, $color-white 5px, $color-8B572A 5px, $color-8B572A 6px,  $color-white);
-              background-size: 15px 15px;
-              background-position: -8px 0;
+              background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+              background-image: -moz-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+              background-image: radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px,  transparent 2px, transparent);
+              background-size: 5px 5px;
+              background-position: 3px 0;
+            }
+            &:before{
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 1;
+              width: 1px;
+              height: 100%;
+              background-color: $color-8B572A;
+            }
+            .bor-aft{
+              position: absolute;
+              top: 50%;
+              right: 0;
+              z-index: 2;
+              transform: translateY(-50%);
+              width: 2.5px;
+              height: 90%;
+              background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+              background-image: -moz-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+              background-image: radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px,  transparent 2px, transparent);
+              background-size: 5px 5px;
+              background-position: -0.6px 0;
             }
             &:after{
               content: '';
               position: absolute;
-              top: 50%;
+              top: 0;
               right: 0;
               z-index: 1;
-              transform: translateY(-50%);
-              width: 2.5px;
-              height: 90%;
-              background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, $color-white 2px, $color-white);
-              background-image: -moz-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, $color-white 2px, $color-white);
-              background-image: radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, $color-white 2px, $color-white);
-              background-size: 5px 5px;
+              width: 1px;
+              height: 100%;
+              background-color: $color-8B572A;
             }
           }
           .get-link{
@@ -320,7 +341,7 @@
   .main{
     position: relative;
     width: 1400px;
-    margin: 0 auto 50px;
+    margin: 0 auto;
     .left{
       float: left;
       width: 380px;
@@ -328,12 +349,14 @@
       .hot{
         width: 100%;
         margin-bottom: 42px;
+        border: 1px solid $color-eee;
         .title{
           width: 100%;
           color: $color-333;
           font-size: $font-size-t26;
-          line-height: 60px;
-          border-bottom: 1px solid $color-eee;
+          line-height: 57px;
+          text-align: center;
+          background-color: $color-eee;
           margin-bottom: 25px;
         }
         .hot-item{
@@ -341,29 +364,18 @@
           display: block;
           width: 100%;
           margin-bottom: 24px;
+          text-align: center;
           img{
-            width: 120px;
-            height: 120px;
+            margin: 0 auto 8px;
+            width: 250px;
+            height: 250px;
           }
           .info{
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
             display: block;
-            width: 239px;
-            .t{
-              display: block;
-              font-size: $font-size-t16;
-              line-height: 22px;
-              margin-bottom: 10px;
-            }
-            .v{
-              display: block;
-              font-size: $font-size-t16;
-              line-height: 22px;
-              color: $color-999;
-            }
+            margin: 0 auto;
+            font-size: $font-size-t14;
+            line-height: 20px;
+            text-align: center;
           }
         }
       }
@@ -453,6 +465,166 @@
           }
         }
       }
+      .tabs-cons{
+        width: 100%;
+        .con{
+          display: none;
+          width: 100%;
+          .overview{
+            width: calc(100% - 40px);
+            margin: 20px 0;
+            padding: 20px;
+            background-color: $color-fafafa;
+            font-size: $font-size-t16;
+            line-height: 22px;
+            color: $color-333;
+            letter-spacing: 0;
+          }
+          .img-container{
+            width: 100%;
+            overflow: hidden;
+            img{
+              width: 100%;
+            }
+          }
+        }
+        .con.chosen{
+          display: block;
+        }
+      }
+    }
+  }
+  .optimization{
+    position: relative;
+    width: 1400px;
+    margin: 50px auto 50px;
+    padding-bottom: 30px;
+    border: 1px solid $color-eee;
+    .title{
+      position: relative;
+      width: 1360px;
+      margin: 20px 20px 16px 20px;
+      .m{
+        margin-right: 16px;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        font-size: $font-size-t26;
+        color: $color-333;
+      }
+      .more{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        display: inline-block;
+        padding-right: 22px;
+        transform: translateY(-50%);
+        font-size: $font-size-t16;
+        line-height: 22px;
+        background: url("../../../../public/img/more.png") no-repeat center right;
+        background-size: 16px 16px;
+      }
+    }
+    .main{
+      position: relative;
+      width: 1360px;
+      margin: 0 auto;
+      .opt-container{
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        z-index: 1;
+        width: 1264px;
+        padding: 0;
+        height: 100%;
+        .l-items{
+          display: block;
+          width: 300px;
+          margin: 0 auto;
+          .mark{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: block;
+            width: 50px;
+            height: 22px;
+            line-height: 22px;
+            font-size: $font-size-t14;
+            background-color: $color-d3b267;
+            color: $color-white;
+            text-align: center;
+          }
+          img{
+            width: 100%;
+          }
+          .des{
+            display: block;
+            padding: 16px 0;
+            width: 100%;
+            text-align: center;
+            font-size: $font-size-t16;
+            line-height: 22px;
+            height: 52px;
+            background-color: $color-fafafa;
+            .t{
+              display: block;
+              color: $color-333;
+              margin-bottom: 8px;
+            }
+            .v{
+              display: block;
+              color: $color-999;
+            }
+          }
+        }
+
+      }
+      .opt-swiper-button-prev,
+      .opt-swiper-button-next {
+        position: absolute;
+        top: 50%;
+        width: 28px;
+        height: 50px;
+        margin-top: -22px;
+        z-index: 10;
+        cursor: pointer;
+        background-size: 28px 50px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .opt-swiper-button-prev.swiper-button-disabled,
+      .opt-swiper-button-next.swiper-button-disabled {
+        opacity: 0.35;
+        cursor: auto;
+        pointer-events: none;
+      }
+      .opt-swiper-button-prev.swiper-button-333,
+      .swiper-container-rtl .opt-swiper-button-next.swiper-button-333 {
+        width: 28px;
+        height: 50px;
+        left: 0;
+        right: auto;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23333333'%2F%3E%3C%2Fsvg%3E");
+        background-size: 28px 50px;
+      }
+      .opt-swiper-button-next.swiper-button-333,
+      .swiper-container-rtl .opt-swiper-button-prev.swiper-button-333 {
+        width: 28px;
+        height: 50px;
+        left: auto;
+        right: 0;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23333333'%2F%3E%3C%2Fsvg%3E");
+        background-size: 28px 50px;
+      }
+      .swiper-button-333:link, .swiper-button-333:visited, .swiper-button-333:hover,
+      .swiper-button-333:active, .swiper-button-333:focus{
+        outline: none;
+        border: none;
+        box-shadow: none;
+        -webkit-tap-highlight-color:transparent;
+      }
+
     }
   }
   .pop-coupon{

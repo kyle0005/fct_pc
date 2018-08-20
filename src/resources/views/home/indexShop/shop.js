@@ -31,6 +31,22 @@ common.swip(
         },
     }
 );
+common.swip(
+    'opt-container', false, false, 4, 'slide',
+    {
+        crossFade: false,
+    },
+    {
+        nextEl: '.opt-swiper-button-next',
+        prevEl: '.opt-swiper-button-prev',
+    },
+    {},
+    {
+        slideChange: function(){
+            // console.log(this.activeIndex + ':' + this.realIndex)
+        },
+    }
+);
 
 document.querySelector('.js-inp').value = 1;
 document.querySelector('.js-add').addEventListener('click', (e) => {
@@ -51,9 +67,12 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) =
         Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (e, index) => {
             e.classList.remove('chosen');
         });
-        if(!el.classList.contains('chosen')){
-            el.classList.add('chosen');
-        }
+        el.classList.add('chosen');
+
+        Array.prototype.forEach.call(document.querySelectorAll('.js-con'), (e, index) => {
+            e.classList.remove('chosen');
+        });
+        document.querySelectorAll('.js-con')[index].classList.add('chosen');
     });
 });
 
