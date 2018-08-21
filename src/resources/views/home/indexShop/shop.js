@@ -2,8 +2,7 @@ import 'swiper/dist/css/swiper.css';
 import './shop.scss';
 import "@babel/polyfill";
 import common from '../../../../public/js/common';
-/*import ajax from '../../../../public/js/ajax';
-ajax.ajaxGet({});*/
+import ajax from '../../../../public/js/ajax';
 let shop = {
     pics: config.pics
 };
@@ -47,6 +46,13 @@ common.swip(
         },
     }
 );
+
+document.querySelector('.js-cart').addEventListener('click', (e) => {
+    ajax.ajaxPost({
+
+    });
+});
+tips
 
 document.querySelector('.js-inp').value = 1;
 document.querySelector('.js-add').addEventListener('click', (e) => {

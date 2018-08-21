@@ -22,6 +22,28 @@
 ;
 }
 
+@mixin stars($width:18px){
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  .stars {
+    -moz-box-flex: 1.0; /* Firefox */
+    -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+    box-flex: 1.0;
+    width: $width;
+    height: $width;
+  }
+  .stars.y{
+    background: url("../../../../public/img/star_y.png") no-repeat center center;
+    background-size: $width;
+  }
+  .stars.w{
+    background: url("../../../../public/img/star_w.png") no-repeat center center;
+    background-size: $width;
+  }
+}
+
 @mixin clearfix() {
   @extend %clearfix;
 }

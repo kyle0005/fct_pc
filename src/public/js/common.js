@@ -59,6 +59,18 @@ exports.countdowm = (timestamp, succ, end, hasDay) => {
         }
     },1000);
 };
+exports.tips = (n) => {
+    let pop_html = '<div class="tips-pop hide"><div class="text js-text">' +
+        n||'' +
+        '</div></div>';
+    if(!document.querySelector('#tipsPop')){
+        let _div = document.createElement("div");
+        _div.setAttribute("id", "tipsPop");
+        _div.innerHTML = pop_html;
+        document.body.appendChild(_div);
+    }
+
+};
 exports.arr = (n) => {
     console.log([1,2,3].map(n => n + 1))
 };

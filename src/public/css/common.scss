@@ -83,3 +83,30 @@ input:focus, select:focus, textarea:focus {
 .wei-content{
   @extend %page;
 }
+
+/* pop */
+.tips-pop {
+  transition: opacity .5s ease-in;
+  z-index: 100;
+  position: fixed;
+  width: 306px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  background: #000;
+  .text {
+    padding: 17px 20px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+  }
+}
+.tips-pop.hide {
+  display: none;
+  opacity: 0;
+}
+.tips-pop.show {
+  display: block;
+  opacity: 0.75;
+}
