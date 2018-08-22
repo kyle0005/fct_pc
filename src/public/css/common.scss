@@ -87,11 +87,12 @@ input:focus, select:focus, textarea:focus {
 /* pop */
 .tips-pop {
   transition: opacity .5s ease-in;
-  z-index: 100;
+  opacity: 0.75;
   position: fixed;
   width: 306px;
   top: 50%;
   left: 50%;
+  z-index: 1000;
   transform: translate(-50%, -50%);
   border-radius: 4px;
   background: #000;
@@ -102,11 +103,19 @@ input:focus, select:focus, textarea:focus {
     color: #fff;
   }
 }
-.tips-pop.hide {
+.tips-pop.hidden {
   display: none;
   opacity: 0;
 }
-.tips-pop.show {
-  display: block;
-  opacity: 0.75;
+.tips-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: transparent;
+}
+.tips-bg.hidden{
+  display: none;
 }

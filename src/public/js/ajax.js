@@ -1,71 +1,3 @@
-let formData = {
-    //获取指定form中的所有的<input>对象
-    getElements: function(formId) {
-        var form = document.getElementById(formId);
-        var elements = new Array();
-        var tagElements = form.getElementsByTagName('input');
-        for (var j = 0; j < tagElements.length; j++){
-            elements.push(tagElements[j]);
-
-        }
-        return elements;
-    },
-//获取单个input中的【name,value】数组
-    inputSelector: function(element) {
-        if (element.checked)
-            return [element.name, element.value];
-    },
-    input: function(element) {
-        switch (element.type.toLowerCase()) {
-            case 'submit':
-            case 'hidden':
-            case 'date': return [element.name, element.value];
-            case 'password':
-            case 'text':
-                return [element.name, element.value];
-            case 'tel':
-                return [element.name, element.value];
-            case 'checkbox':
-            case 'radio':
-                return this.inputSelector(element);
-        }
-        return false;
-    },
-//组合URL
-    serializeElement: function(element) {
-        var method = element.tagName.toLowerCase();
-        var parameter = this.input(element);
-
-        if (parameter) {
-            var key = encodeURIComponent(parameter[0]);
-            if (key.length == 0) return;
-
-            if (parameter[1].constructor != Array)
-                parameter[1] = [parameter[1]];
-
-            var values = parameter[1];
-            var results = [];
-            for (var i=0; i<values.length; i++) {
-                // results.push(key + '=' + encodeURIComponent(values[i]));
-                results.push(key + '=' + values[i]);
-            }
-            return results.join('&');
-        }
-    },
-//调用方法
-    serializeForm: function(formId) {
-        var elements = this.getElements(formId);
-        var queryComponents = new Array();
-
-        for (var i = 0; i < elements.length; i++) {
-            var queryComponent = this.serializeElement(elements[i]);
-            if (queryComponent)
-                queryComponents.push(queryComponent);
-        }
-
-        return queryComponents.join('&');
-    }
-};
 let jAjax = function (options) {
     //编码数据
     function setData() {
@@ -251,7 +183,7 @@ let jAjax = function (options) {
         createXHR();
     }
 };
-exports.ajaxGet = (url, callback, before, error) => {
+const ajaxGet = (url, callback, before, error) => {
     jAjax({
         type:'get',
         url:url,
@@ -279,7 +211,7 @@ exports.ajaxGet = (url, callback, before, error) => {
         }
     });
 };
-exports.ajaxPost = (url, data, callback, before, error, paras, alert, upload) => {
+const ajaxPost = (url, data, callback, before, error, paras, alert, upload) => {
     let _timeout = 5000;
     if(!upload){
         _timeout = 60000;
@@ -345,3 +277,72 @@ exports.ajaxPost = (url, data, callback, before, error, paras, alert, upload) =>
         }
     });
 };
+const formData = {
+    //获取指定form中的所有的<input>对象
+    getElements: function(formId) {
+        var form = document.getElementById(formId);
+        var elements = new Array();
+        var tagElements = form.getElementsByTagName('input');
+        for (var j = 0; j < tagElements.length; j++){
+            elements.push(tagElements[j]);
+
+        }
+        return elements;
+    },
+//获取单个input中的【name,value】数组
+    inputSelector: function(element) {
+        if (element.checked)
+            return [element.name, element.value];
+    },
+    input: function(element) {
+        switch (element.type.toLowerCase()) {
+            case 'submit':
+            case 'hidden':
+            case 'date': return [element.name, element.value];
+            case 'password':
+            case 'text':
+                return [element.name, element.value];
+            case 'tel':
+                return [element.name, element.value];
+            case 'checkbox':
+            case 'radio':
+                return this.inputSelector(element);
+        }
+        return false;
+    },
+//组合URL
+    serializeElement: function(element) {
+        var method = element.tagName.toLowerCase();
+        var parameter = this.input(element);
+
+        if (parameter) {
+            var key = encodeURIComponent(parameter[0]);
+            if (key.length == 0) return;
+
+            if (parameter[1].constructor != Array)
+                parameter[1] = [parameter[1]];
+
+            var values = parameter[1];
+            var results = [];
+            for (var i=0; i<values.length; i++) {
+                // results.push(key + '=' + encodeURIComponent(values[i]));
+                results.push(key + '=' + values[i]);
+            }
+            return results.join('&');
+        }
+    },
+//调用方法
+    serializeForm: function(formId) {
+        var elements = this.getElements(formId);
+        var queryComponents = new Array();
+
+        for (var i = 0; i < elements.length; i++) {
+            var queryComponent = this.serializeElement(elements[i]);
+            if (queryComponent)
+                queryComponents.push(queryComponent);
+        }
+
+        return queryComponents.join('&');
+    }
+};
+export {ajaxGet, ajaxPost, formData};

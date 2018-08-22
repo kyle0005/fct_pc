@@ -1,7 +1,7 @@
 import 'swiper/dist/css/swiper.css';
 import './store.scss';
-import common from '../../../../public/js/common';
-common.swip(
+import {swip} from '../../../../public/js/common';
+swip(
     'swiper-container', true, true, 1, 'slide',
     {
         crossFade: false,

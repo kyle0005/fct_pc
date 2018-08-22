@@ -87,6 +87,7 @@
         </div>
         <div class="pro-detail">
           <form id="addcart">
+              <input name="pro_id" type="hidden" value="23560004">
               <div class="product">
                 <div class="title">圣珠提梁<span class="mark">爆款</span></div>
                 <div class="vtitle">茶已熟，雨正濛。有佳器，能修德。</div>
@@ -115,9 +116,19 @@
                   <span class="r"><span class="l">库存</span>有货</span><span class="r"><span class="l">编号</span>F1810513</span>
                 </div>
               </div>
+              <div class="choose-spec">
+                  <div class="txt">规格</div>
+                  <input type="hidden" name="spec" class="js-spec"/>
+                  <div class="specs-list">
+                      <a href="javascript:;" data-spec="0" class="js-specs specs-items chosen">xxxx款</a>
+                      <a href="javascript:;" data-spec="1" class="js-specs specs-items">xxxx款</a>
+                      <a href="javascript:;" data-spec="2" class="js-specs specs-items">xxxx款</a>
+                      <a href="javascript:;" data-spec="3" class="js-specs specs-items">xxxx款</a>
+                  </div>
+              </div>
               <div class="choose-num clearfix">
                 <span class="txt">数量</span>
-                <input type="text" name="points" class="js-inp inp"/>
+                <input type="text" name="points" class="js-inp inp" value="1"/>
                 <div class="change-num">
                   <a href="javascript:;" class="js-add add">&nbsp;</a>
                   <a href="javascript:;" class="js-minus minus">&nbsp;</a>
@@ -550,7 +561,9 @@
             '../../../public/img/test6.png',
             '../../../public/img/test5.png',
             '../../../public/img/test4.jpg'
-        ]
+        ],
+        'addcart_url': '',
+        'fav_url': ''
     };
 
   </script>

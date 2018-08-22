@@ -1,12 +1,33 @@
 import 'swiper/dist/css/swiper.css';
 import './shop.scss';
 import "@babel/polyfill";
-import common from '../../../../public/js/common';
-import ajax from '../../../../public/js/ajax';
+import {tips, showPop, hidePop, countdown, swip, common} from '../../../../public/js/common';
+import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
+tips();
 let shop = {
-    pics: config.pics
+    post_url: config.addcart_url,
+    fav_url: config.fav_url,
+    pics: config.pics,
+    before: function(){
+        console.log('before')
+    },
+    success: function(data, paras){
+        console.log('success')
+    },
+    favSuc: function(data){
+        console.log(data.data.favoriteState);
+    },
+    error: function(){
+        console.log('error')
+    },
+    alert: function(data){
+        showPop(data.message);
+        setTimeout(function () {
+            hidePop();
+        }, 1500);
+    }
 };
-common.swip(
+swip(
     'photo-container', false, true, 1, 'fade',
     {
         crossFade: true,
@@ -30,7 +51,7 @@ common.swip(
         },
     }
 );
-common.swip(
+swip(
     'opt-container', false, false, 4, 'slide',
     {
         crossFade: false,
@@ -46,24 +67,49 @@ common.swip(
         },
     }
 );
-
+document.querySelector('.js-fav').addEventListener('click', (e) => {
+    ajaxPost(
+        shop.fav_url,
+        {},
+        shop.favSuc(),
+        shop.before(),
+        shop.error(),
+        {},
+        shop.alert()
+    );
+});
 document.querySelector('.js-cart').addEventListener('click', (e) => {
-    ajax.ajaxPost({
+    ajaxPost(
+        shop.post_url,
+        formData.serializeForm('addcart'),
+        shop.success(),
+        shop.before(),
+        shop.error(),
+        {},
+        shop.alert()
+    );
+});
 
+document.querySelector('.js-spec').setAttribute('value', document.querySelector('.js-specs').getAttribute('data-spec'));
+Array.prototype.forEach.call(document.querySelectorAll('.js-specs'), (el, index) => {
+    el.addEventListener('click', (ev) => {
+        Array.prototype.forEach.call(document.querySelectorAll('.js-specs'), (e, index) => {
+            e.classList.remove('chosen');
+        });
+        el.classList.add('chosen');
+        document.querySelector('.js-spec').setAttribute('value', el.getAttribute('data-spec'));
     });
 });
-tips
 
-document.querySelector('.js-inp').value = 1;
 document.querySelector('.js-add').addEventListener('click', (e) => {
     let _tm = document.querySelector('.js-inp').value;
-    document.querySelector('.js-inp').value = parseInt(_tm) + 1;
+    document.querySelector('.js-inp').setAttribute('value', parseInt(_tm) + 1);
 });
 
 document.querySelector('.js-minus').addEventListener('click', (e) => {
     let _tm = document.querySelector('.js-inp').value;
     if(_tm > 1){
-        document.querySelector('.js-inp').value = _tm - 1;
+        document.querySelector('.js-inp').setAttribute('value', parseInt(_tm) - 1)
     }
 
 });
@@ -83,10 +129,10 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) =
 });
 
 Array.prototype.forEach.call(document.querySelectorAll('.js-counttime'), (el) => {
-    common.countdowm(el.getAttribute('data-timenum'), (time_obj) => {
-        common.common.countSuc(time_obj, el);
+    countdown(el.getAttribute('data-timenum'), (time_obj) => {
+        common.countSuc(time_obj, el);
     }, (time_obj) => {
-        common.common.countEnd(time_obj, el);
+        common.countEnd(time_obj, el);
     }, !!el.querySelector('.js-d'));
 });
 

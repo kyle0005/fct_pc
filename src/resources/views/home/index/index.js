@@ -2,8 +2,8 @@ import 'swiper/dist/css/swiper.css';
 import './index.scss';
 import "@babel/polyfill";
 import imgs from '../../../../public/js/loadImg';
-import common from '../../../../public/js/common';
-common.swip(
+import {countdown, swip, common} from '../../../../public/js/common';
+swip(
     'swiper-container', true, true, 1, 'slide',
     {
         crossFade: false,
@@ -31,7 +31,7 @@ common.swip(
     }
 );
 
-common.swip(
+swip(
     'presale-container', false, true, 1, 'slide',
     {
         crossFade: false,
@@ -56,7 +56,7 @@ common.swip(
     }
 );
 
-common.swip(
+swip(
     'opt-container', false, false, 4, 'slide',
     {
         crossFade: false,
@@ -73,7 +73,7 @@ common.swip(
     }
 );
 
-common.swip(
+swip(
     'act-container', false, false, 4, 'slide',
     {
         crossFade: false,
@@ -91,9 +91,9 @@ common.swip(
 );
 
 Array.prototype.forEach.call(document.querySelectorAll('.js-counttime'), (el) => {
-    common.countdowm(el.getAttribute('data-timenum'), (time_obj) => {
-        common.common.countSuc(time_obj, el);
+    countdown(el.getAttribute('data-timenum'), (time_obj) => {
+        common.countSuc(time_obj, el);
     }, (time_obj) => {
-        common.common.countEnd(time_obj, el);
+        common.countEnd(time_obj, el);
     }, !!el.querySelector('.js-d'));
 });

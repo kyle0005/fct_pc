@@ -78,10 +78,9 @@
       right: 0;
       transform: translateY(-50%);
       width: 736px;
-      height: 420px;
       .product{
         width: 70%;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         .title{
           font-size: $font-size-t30;
           line-height: 30px;
@@ -130,7 +129,7 @@
           margin-bottom: 8px;
         }
         .tips{
-          margin-bottom: 17px;
+          margin-bottom: 16px;
           .tip{
             display: inline-block;
             background: url("../../../../public/img/icon_yes.png") no-repeat center left;
@@ -246,10 +245,10 @@
         width: calc(100% - 40px);
         height: 80px;
         background: $color-fafafa;
-        padding: 24px 20px;
+        padding: 20px;
         line-height: 16px;
         font-size: $font-size-t16;
-        margin-bottom: 26px;
+        margin-bottom: 12px;
         .line{
           margin-bottom: 16px;
         }
@@ -262,21 +261,53 @@
           }
         }
       }
+      .choose-spec{
+        position: relative;
+        width: 100%;
+        margin-bottom: 8px;
+        .txt{
+          position: absolute;
+          left: 0;
+          top: 10px;
+          display: inline-block;
+          width: 38px;
+          line-height: 20px;
+          font-size: $font-size-t14;
+          color: $color-363738;
+        }
+        .specs-list{
+          margin-left: 38px;
+          font-size: 0;
+          .specs-items{
+            display: inline-block;
+            width: 98px;
+            height: 38px;
+            line-height: 40px;
+            margin-right: 10px;
+            border: 1px solid rgba(54,55,56,0.20);
+            color: $color-333;
+            font-size: $font-size-t14;
+            text-align: center;
+          }
+          .specs-items.chosen{
+            border: 1px solid $color-8B572A;
+          }
+        }
+      }
       .choose-num{
         position: relative;
         width: 250px;
         height: 40px;
-        margin-bottom: 20px;
+        margin-bottom: 12px;
         .txt{
           float: left;
           display: inline-block;
-          width: 28px;
-          text-align: center;
+          width: 38px;
+          text-align: left;
           font-size: $font-size-t14;
           color: $color-363738;
           height: 40px;
           line-height: 40px;
-          margin-right: 10px;
         }
         .inp{
           float: left;

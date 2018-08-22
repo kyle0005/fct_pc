@@ -1,5 +1,5 @@
 import swp from 'swiper';
-exports.common = {
+const common = {
     countSuc: (time_obj, el) => {
         if(el.querySelector('.js-d')){
             el.querySelector('.js-d').innerHTML = time_obj.day;
@@ -12,7 +12,7 @@ exports.common = {
         console.log('end')
     }
 };
-exports.swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on) => {
+const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on) => {
     new swp('.' + name, {
         autoplay: autoplay,
         loop : loop,
@@ -24,7 +24,7 @@ exports.swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigat
         on:on
     });
 };
-exports.countdowm = (timestamp, succ, end, hasDay) => {
+const countdown = (timestamp, succ, end, hasDay) => {
     let time_obj = {}, _initTime = new Date().getTime();
     let timer = setInterval(() => {
         let nowTime = new Date();
@@ -59,21 +59,30 @@ exports.countdowm = (timestamp, succ, end, hasDay) => {
         }
     },1000);
 };
-exports.tips = (n) => {
-    let pop_html = '<div class="tips-pop hide"><div class="text js-text">' +
-        n||'' +
-        '</div></div>';
+const tips = () => {
+    let pop_html = '<div class="js-tips-pop tips-pop hidden"><div class="text js-text"></div></div><div class="js-tips-bg tips-bg hidden"></div>';
     if(!document.querySelector('#tipsPop')){
         let _div = document.createElement("div");
         _div.setAttribute("id", "tipsPop");
         _div.innerHTML = pop_html;
         document.body.appendChild(_div);
     }
+};
+const showPop = (msg) => {
+    let _el = document.querySelector('.js-tips-pop');
+    let _tips_bg = document.querySelector('.js-tips-bg');
+    _el.querySelector('.js-text').innerHTML = msg;
+    _el.classList.remove('hidden');
+    _tips_bg.classList.remove('hidden');
+};
+const hidePop = () => {
+    let _el = document.querySelector('.js-tips-pop');
+    let _tips_bg = document.querySelector('.js-tips-bg');
+    _el.classList.add('hidden');
+    _tips_bg.classList.add('hidden');
+};
 
-};
-exports.arr = (n) => {
-    console.log([1,2,3].map(n => n + 1))
-};
+export {tips, showPop, hidePop, countdown, swip, common};
 
 const chainAsync = fns => { let curr = 0; const next = () => fns[curr++](next); next(); };
 /*
