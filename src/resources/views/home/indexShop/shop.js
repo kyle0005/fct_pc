@@ -7,6 +7,7 @@ tips();
 let shop = {
     post_url: config.addcart_url,
     fav_url: config.fav_url,
+    buy_url: config.buy_url,
     pics: config.pics,
     before: function(){
         console.log('before')
@@ -89,6 +90,16 @@ document.querySelector('.js-cart').addEventListener('click', (e) => {
         shop.alert()
     );
 });
+document.querySelector('.js-buy').addEventListener('click', (e) => {
+    let _proId = document.querySelector('.js-proid').value;
+    let _specId = document.querySelector('.js-spec').value;
+    let _num = document.querySelector('.js-inp').value;
+    let _url = shop.buy_url + '?product_id=' + _proId;
+        _url += '&spec_id=' + _specId;
+        _url += '&buy_number=' + _num;
+    location.href = _url;
+});
+
 
 document.querySelector('.js-spec').setAttribute('value', document.querySelector('.js-specs').getAttribute('data-spec'));
 Array.prototype.forEach.call(document.querySelectorAll('.js-specs'), (el, index) => {

@@ -49,6 +49,20 @@ module.exports = merge(common, {
                     }
                 ]
             },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            publicPath: '../img/pc/',           /* 生成dist目录中css里面的图片的url地址前缀 */
+                            outputPath: 'public/img/'        /* 图片输出到dist的目录前缀 */
+                        }
+                    }
+
+                ]
+            },
         ],
     },
     plugins: [

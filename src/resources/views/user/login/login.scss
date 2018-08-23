@@ -1,0 +1,22 @@
+@import "./src/public/css/common";
+@import "./src/public/css/header";
+.login-container{
+  @extend %page;
+  .main{
+    position: relative;
+    width: 1400px;
+    margin: 80px auto 105px;
+    .show-img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 800px;
+      height: 700px;
+    }
+    .log-form{
+      margin-left: 800px;
+      width: 600px;
+
+    }
+  }
+}
