@@ -5,10 +5,115 @@ import {tips, showPop, hidePop, countdown, swip, common} from '../../../../publi
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 tips();
 let shop = {
+    getCoupon_url: config.getCouponUrl,
     post_url: config.addcart_url,
     fav_url: config.fav_url,
     buy_url: config.buy_url,
+    discuss_url: config.discuss_url,
     pics: config.pics,
+    points: function(total_num, chosen_num){
+        let _stars = '';
+        for (let i = 0; i < chosen_num; i++) {
+            _stars += '<div class="stars y"></div>';
+        }
+        for (let i = 0; i < (total_num - chosen_num); i++) {
+            _stars += '<div class="stars w"></div>';
+        }
+        return _stars;
+    },
+    proImg: function(imgs){
+        let _imgs = '';
+        Array.prototype.forEach.call(imgs, (el, index) => {
+            _imgs += '<img src="' + el + '" class="pro-img">'
+        });
+        return _imgs;
+    },
+    insertCommet: function(data){
+        let _list_items = '';
+        Array.prototype.forEach.call(data.data.entries, (el, index) => {
+            _list_items += '<div class="comment-item">\n' +
+                '<div class="user">' +
+                '<img src="' + el.photo + '" class="user-photo">' +
+                '<span class="user-name">' + el.username + '</span>' +
+                '</div>' +
+                '<div class="speak">' +
+                '<div class="points">' +
+                shop.points(5, el.stars) +
+                '</div>' +
+                '<div class="text">' + el.text + '</div>' +
+                shop.proImg(el.imgs) +
+                '<div class="time">' + el.date + '</div>' +
+                '</div>' +
+                '</div>';
+        });
+        return _list_items;
+    },
+    insertPager: function(pager){
+        /*
+         *      'prev' => 0,
+                'current' => $pageIndex,
+                'next' => 0,
+                'page_size' => $pageSize,
+                'total_page' => $totalPage,
+                'total' => $result->totalCount,
+          *
+          * */
+        let _isHiddenExist = 0;
+        let _pager = '<a href="javascript:;" class="js-prev links">&lt;</a>';
+
+        for (let i = 1; i <= pager.total_page; i++) {
+            if(parseInt(pager.current) === i){
+                _pager += '<a href="javascript:;" class="js-links links active">' + i + '</a>';
+            }
+            else {
+                if(i < 4 || i < parseInt(pager.current) + 2 && i > parseInt(pager.current) - 2 || i > (parseInt(pager.total_page) - 2)){
+                    _pager += '<a href="javascript:;" class="js-links links">' + i + '</a>';
+                    _isHiddenExist = 0;
+                }
+                else {
+                    if(_isHiddenExist === 0){
+                        _pager += '<a href="javascript:;" class="js-ellipsis links">...</a>';
+                        _isHiddenExist = 1;
+                    }
+                }
+            }
+        }
+        _pager += '<a href="javascript:;" class="js-next links">&gt;</a>';
+        return _pager;
+    },
+    pagerSuccess: function(data, paras){
+        let _list = document.querySelector('.js-comment-list'),
+            _pager = document.querySelector('.js-pager');
+        _list.innerHTML = shop.insertCommet(data);
+        _pager.innerHTML = shop.insertPager(data.data.pager);
+        document.querySelector('.js-loading').classList.add('hidden');
+        shop.pagerBind(data.data.pager);
+    },
+    pagerBind: function(pager){
+        document.querySelector('.js-prev').addEventListener('click', (e) => {
+            if(pager.prev > 0){
+                ajaxGet(shop.discuss_url + '?page=' + pager.prev, shop.pagerSuccess, shop.pagerBefore, shop.pagerError)
+            }
+        });
+        document.querySelector('.js-next').addEventListener('click', (e) => {
+            if(pager.next > 0){
+                ajaxGet(shop.discuss_url + '?page=' + pager.next, shop.pagerSuccess, shop.pagerBefore, shop.pagerError)
+            }
+        });
+        Array.prototype.forEach.call(document.querySelectorAll('.js-links'), (el, index) => {
+            if(!el.classList.contains('active')){
+                el.addEventListener('click', (ev) => {
+                    ajaxGet(shop.discuss_url + '?page=' + (parseInt(el.innerHTML)), shop.pagerSuccess, shop.pagerBefore, shop.pagerError);
+                });
+            }
+        });
+    },
+    pagerBefore: function(data, paras){
+        document.querySelector('.js-loading').classList.remove('hidden');
+    },
+    pagerError: function(data, paras){
+
+    },
     before: function(){
         console.log('before')
     },
@@ -28,6 +133,16 @@ let shop = {
         }, 1500);
     }
 };
+/*let data_pager = {
+    'prev' : 0,
+    'current' : 47,
+    'next' : 0,
+    'page_size' : 20,
+    'total_page' : 50,
+    'total' : 1000
+}
+let _pager = document.querySelector('.js-pager');
+_pager.innerHTML = shop.insertPager(data_pager);*/
 swip(
     'photo-container', false, true, 1, 'fade',
     {
@@ -68,6 +183,18 @@ swip(
         },
     }
 );
+
+document.querySelector('.js-getcoupon').addEventListener('click', (e) => {
+    ajaxPost(
+        shop.getCoupon_url,
+        {'id': el.getAttribute('data-cid')},
+        shop.success(),
+        shop.before(),
+        shop.error(),
+        {},
+        shop.alert()
+    );
+});
 document.querySelector('.js-fav').addEventListener('click', (e) => {
     ajaxPost(
         shop.fav_url,
@@ -127,15 +254,18 @@ document.querySelector('.js-minus').addEventListener('click', (e) => {
 
 Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) => {
     el.addEventListener('click', (e) => {
-        Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (e, index) => {
+        Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (e, ind) => {
             e.classList.remove('chosen');
         });
         el.classList.add('chosen');
 
-        Array.prototype.forEach.call(document.querySelectorAll('.js-con'), (e, index) => {
+        Array.prototype.forEach.call(document.querySelectorAll('.js-con'), (e, ind) => {
             e.classList.remove('chosen');
         });
         document.querySelectorAll('.js-con')[index].classList.add('chosen');
+        if(index === 4){
+            ajaxGet(shop.discuss_url, shop.pagerSuccess, shop.pagerBefore, shop.pagerError)
+        }
     });
 });
 
