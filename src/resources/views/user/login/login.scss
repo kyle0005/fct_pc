@@ -6,17 +6,194 @@
     position: relative;
     width: 1400px;
     margin: 80px auto 105px;
-    .show-img{
+    background-color: $color-white;
+    &:after{
+      content: '';
       position: absolute;
-      top: 0;
+      bottom: -80px;
       left: 0;
+      z-index: -1;
+      width: 1410px;
+      height: 149px;
+      background: url("../../../../public/img/shadow.png") no-repeat center center;
+      background-size: 1410px auto;
+    }
+    .show-img{
       width: 800px;
       height: 700px;
     }
     .log-form{
-      margin-left: 800px;
-      width: 600px;
+      position: absolute;
+      top: 0;
+      left: 800px;
+      width: 598px;
+      height: calc(100% - 2px);
+      border: 1px solid $color-e6e6e6;
+      background: url("../../../../public/img/logo2.png") no-repeat center 70px;
+      background-size: 150px auto;
+      .link-container{
+        margin: 180px auto 0;
+        height: 34px;
+        width: 360px;
+        border-bottom: 1px solid $color-e7e8e8;
+        text-align: center;
+        .cur{
+          position: relative;
+          display: inline-block;
+          color: $color-333;
+          line-height: 18px;
+          height: 18px;
+          font-size: $font-size-t18;
+          font-weight: bold;
+          padding-right: 16px;
+          &:after{
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 12px;
+            background-color: $color-d2d2d2;
+          }
+        }
+        .l{
+          display: inline-block;
+          padding-left: 16px;
+          font-size: $font-size-t16;
+          color: $color-666;
+          line-height: 18px;
+          height: 16px;
+        }
 
+      }
+      .login-form{
+        margin: 0 auto;
+        width: 360px;
+        .login-items{
+          position: relative;
+          width: calc(100% - 1px);
+          height: 42px;
+          margin-top: 20px;
+          border: 1px solid $color-ccc;
+        }
+        .phone{
+          background: url("../../../../public/img/icon_search.png") no-repeat 13px center;
+          background-size: 14px 20px;
+          .phone-num{
+            width: calc(100% - 53px);
+            margin: 14px 13px 14px 40px;
+            height: 14px;
+            line-height: 14px;
+            font-size: $font-size-t14;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            -webkit-tap-highlight-color:transparent;
+          }
+        }
+        .msg{
+          background: url("../../../../public/img/icon_notice.png") no-repeat 13px center;
+          background-size: 14px 20px;
+          .msg-num{
+            width: calc(100% - 53px);
+            margin: 14px 13px 14px 40px;
+            height: 14px;
+            line-height: 14px;
+            font-size: $font-size-t14;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            -webkit-tap-highlight-color:transparent;
+          }
+          .get-code{
+            display: block;
+            position: absolute;
+            right: -1px;
+            top: -1px;
+            width: 100px;
+            height: 44px;
+            line-height: 44px;
+            color: $color-white;
+            font-size: $font-size-t13;
+            text-align: center;
+            background-color: $color-333;
+          }
+        }
+        .sub{
+          margin-top: 30px;
+          text-align: center;
+          @include wei-bg-btn(360px, 50px, $font-size-t16, $color-white, $color-333, $color-333, 0);
+        }
+      }
+      .other{
+        margin: 50px auto 0;
+        width: 204px;
+        .title{
+          position: relative;
+          width: 100%;
+          height: 18px;
+          line-height: 18px;
+          font-size: $font-size-t14;
+          color: $color-999;
+          text-align: center;
+          &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 1px;
+            width: 50px;
+            background-color: $color-d2d2d2;
+          }
+          &:after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            height: 1px;
+            width: 50px;
+            background-color: $color-d2d2d2;
+          }
+        }
+        .links{
+          position: relative;
+          display: block;
+          margin: 16px auto 0;
+          width: 66px;
+          padding-bottom: 90px;
+          text-align: center;
+          background: url("../../../../public/img/wechat.png") no-repeat center top;
+          background-size: 66px auto;
+          .l-txt{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            display: block;
+            width: 100%;
+            font-size: $font-size-t14;
+            line-height: 16px;
+            color: $color-666;
+          }
+        }
+      }
+      .clear-fork{
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url("../../../../public/img/clear_fork.png") no-repeat center center;
+        background-size: 20px 20px;
+      }
+      .clear-fork.hidden{
+        display: none;
+      }
     }
   }
 }

@@ -119,3 +119,164 @@ input:focus, select:focus, textarea:focus {
 .tips-bg.hidden{
   display: none;
 }
+
+//注册
+.register{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  .register-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 400px;
+    background-color: white;
+    .link-container{
+      position: relative;
+      margin: 21px 20px;
+      height: 34px;
+      width: 360px;
+      border-bottom: 1px solid $color-e7e8e8;
+      .cur{
+        position: relative;
+        display: inline-block;
+        color: $color-333;
+        line-height: 18px;
+        height: 18px;
+        font-size: $font-size-t18;
+        font-weight: bold;
+        padding-right: 16px;
+        &:after{
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 1px;
+          height: 12px;
+          background-color: $color-d2d2d2;
+        }
+      }
+      .l{
+        display: inline-block;
+        padding-left: 16px;
+        font-size: $font-size-t16;
+        color: $color-666;
+        line-height: 18px;
+        height: 16px;
+      }
+      .close{
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 18px;
+        height: 19px;
+        background: url("../../../../public/img/close.png") no-repeat center right;
+        background-size: 18px 19px;
+      }
+    }
+    .reg-form{
+      margin: 0 auto;
+      width: 360px;
+      .reg-items{
+        position: relative;
+        width: calc(100% - 1px);
+        height: 34px;
+        margin-top: 20px;
+        border: 1px solid $color-ccc;
+      }
+      .phone{
+        background: url("../../../../public/img/icon_search.png") no-repeat 13px center;
+        background-size: 14px 20px;
+        .phone-num{
+          width: calc(100% - 53px);
+          margin: 10px 13px 10px 40px;
+          height: 14px;
+          line-height: 14px;
+          font-size: $font-size-t14;
+          border: none;
+          outline: none;
+          box-shadow: none;
+          -webkit-tap-highlight-color:transparent;
+        }
+      }
+      .msg{
+        margin-top: 16px;
+        background: url("../../../../public/img/icon_notice.png") no-repeat 13px center;
+        background-size: 14px 20px;
+        .msg-num{
+          width: calc(100% - 53px);
+          margin: 10px 13px 10px 40px;
+          height: 14px;
+          line-height: 14px;
+          font-size: $font-size-t14;
+          border: none;
+          outline: none;
+          box-shadow: none;
+          -webkit-tap-highlight-color:transparent;
+        }
+        .get-code{
+          display: block;
+          position: absolute;
+          right: -1px;
+          top: -1px;
+          width: 100px;
+          height: 36px;
+          line-height: 36px;
+          color: $color-white;
+          font-size: $font-size-t13;
+          text-align: center;
+          background-color: $color-333;
+        }
+      }
+      .pwd{
+        margin-top: 16px;
+        background: url("../../../../public/img/password.png") no-repeat 13px center;
+        background-size: 14px 20px;
+        .pwd-num{
+          width: calc(100% - 53px);
+          margin: 10px 13px 10px 40px;
+          height: 14px;
+          line-height: 14px;
+          font-size: $font-size-t14;
+          border: none;
+          outline: none;
+          box-shadow: none;
+          -webkit-tap-highlight-color:transparent;
+        }
+      }
+      .sub{
+        margin-top: 30px;
+        text-align: center;
+        @include wei-bg-btn(360px, 50px, $font-size-t16, $color-white, $color-333, $color-333, 0);
+      }
+    }
+    .other{
+      padding: 24px 0 84px 0;
+      width: 100%;
+      font-size: $font-size-t14;
+      line-height: 18px;
+      color: $color-999;
+      text-align: center;
+    }
+    .clear-fork{
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("../../../../public/img/clear_fork.png") no-repeat center center;
+      background-size: 20px 20px;
+    }
+  }
+}

@@ -8,3 +8,5 @@ import t_3 from '../img/test6.png';
 
 import a_1 from '../img/auc1.png';
 import a_2 from '../img/auc2.png';
+
+import login from '../img/login.png';

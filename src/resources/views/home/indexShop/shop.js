@@ -184,17 +184,20 @@ swip(
     }
 );
 
-document.querySelector('.js-getcoupon').addEventListener('click', (e) => {
-    ajaxPost(
-        shop.getCoupon_url,
-        {'id': el.getAttribute('data-cid')},
-        shop.success(),
-        shop.before(),
-        shop.error(),
-        {},
-        shop.alert()
-    );
-});
+if(document.querySelector('.js-getcoupon')){
+    document.querySelector('.js-getcoupon').addEventListener('click', (e) => {
+        ajaxPost(
+            shop.getCoupon_url,
+            {'id': el.getAttribute('data-cid')},
+            shop.success(),
+            shop.before(),
+            shop.error(),
+            {},
+            shop.alert()
+        );
+    });
+}
+
 document.querySelector('.js-fav').addEventListener('click', (e) => {
     ajaxPost(
         shop.fav_url,
@@ -219,7 +222,10 @@ document.querySelector('.js-cart').addEventListener('click', (e) => {
 });
 document.querySelector('.js-buy').addEventListener('click', (e) => {
     let _proId = document.querySelector('.js-proid').value;
-    let _specId = document.querySelector('.js-spec').value;
+    let _specId = '';
+    if(document.querySelector('.js-spec')){
+        _specId = document.querySelector('.js-spec').value;
+    }
     let _num = document.querySelector('.js-inp').value;
     let _url = shop.buy_url + '?product_id=' + _proId;
         _url += '&spec_id=' + _specId;
@@ -227,18 +233,18 @@ document.querySelector('.js-buy').addEventListener('click', (e) => {
     location.href = _url;
 });
 
-
-document.querySelector('.js-spec').setAttribute('value', document.querySelector('.js-specs').getAttribute('data-spec'));
-Array.prototype.forEach.call(document.querySelectorAll('.js-specs'), (el, index) => {
-    el.addEventListener('click', (ev) => {
-        Array.prototype.forEach.call(document.querySelectorAll('.js-specs'), (e, index) => {
-            e.classList.remove('chosen');
+if(document.querySelector('.js-spec')){
+    document.querySelector('.js-spec').setAttribute('value', document.querySelector('.js-specs').getAttribute('data-spec'));
+    Array.prototype.forEach.call(document.querySelectorAll('.js-specs'), (el, index) => {
+        el.addEventListener('click', (ev) => {
+            Array.prototype.forEach.call(document.querySelectorAll('.js-specs'), (e, index) => {
+                e.classList.remove('chosen');
+            });
+            el.classList.add('chosen');
+            document.querySelector('.js-spec').setAttribute('value', el.getAttribute('data-spec'));
         });
-        el.classList.add('chosen');
-        document.querySelector('.js-spec').setAttribute('value', el.getAttribute('data-spec'));
     });
-});
-
+}
 document.querySelector('.js-add').addEventListener('click', (e) => {
     let _tm = document.querySelector('.js-inp').value;
     document.querySelector('.js-inp').setAttribute('value', parseInt(_tm) + 1);
@@ -277,9 +283,11 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-counttime'), (el) =>
     }, !!el.querySelector('.js-d'));
 });
 
-document.querySelector('.js-get-link').addEventListener('click', (e) => {
-    document.querySelector('.js-pop-coupon').classList.add('show');
-});
+if(document.querySelector('.js-get-link')){
+    document.querySelector('.js-get-link').addEventListener('click', (e) => {
+        document.querySelector('.js-pop-coupon').classList.add('show');
+    });
+}
 
 document.querySelector('.js-close').addEventListener('click', (e) => {
     document.querySelector('.js-pop-coupon').classList.remove('show');

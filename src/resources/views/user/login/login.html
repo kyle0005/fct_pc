@@ -6,7 +6,7 @@
     <title>index</title>
   </head>
   <body>
-    <div class=login-container">
+    <div class="login-container">
       <div class="header">
         <section class="head">
           <div class="inner">
@@ -23,12 +23,69 @@
         </section>
       </div>
       <section class="main">
-        <img src="../../../public/img/auc1.png" class="show-img">
-        <div class="log-form">
-
-        </div>
+          <img src="../../../public/img/login.png" class="show-img">
+          <div class="log-form">
+            <div class="link-container">
+              <a href="javascript:;" class="cur">手机号登录</a>
+              <a href="javascript:;" class="l">快速注册</a>
+            </div>
+            <div class="login-form">
+              <form id="quickLogin">
+                <div class="login-items phone">
+                  <input type="text" name="phone" class="js-phone-num phone-num" placeholder="请输入手机号码"/>
+                  <a href="javascript:;" class="js-clear-fork clear-fork hidden">&nbsp;</a>
+                </div>
+                <div class="login-items msg">
+                  <input type="text" name="msg" class="js-msg-num msg-num" placeholder="请输入短信验证码"/>
+                  <a href="javascript:;" class="js-get-code get-code">获取验证码</a>
+                </div>
+                <a href="javascript:;" class="js-login sub">登录</a>
+              </form>
+            </div>
+            <div class="other">
+              <div class="title">其他登录方式</div>
+              <a href="javascript:;" class="links">
+                <span class="l-txt">微信登录</span>
+              </a>
+            </div>
+          </div>
       </section>
 	</div>
+    <div class="register">
+      <div class="register-container">
+        <div class="link-container">
+          <a href="javascript:;" class="cur">快速注册</a>
+          <a href="javascript:;" class="l">手机号登录</a>
+          <a href="javascript:;" class="js-close close">&nbsp;</a>
+        </div>
+        <div class="reg-form">
+          <form id="reg">
+            <div class="reg-items phone">
+              <input type="text" class="phone-num" placeholder="请输入手机号码"/>
+              <a href="javascript:;" class="clear-fork">&nbsp;</a>
+            </div>
+            <div class="reg-items msg">
+              <input type="text" class="msg-num" placeholder="请输入短信验证码"/>
+              <a href="javascript:;" class="get-code">获取验证码</a>
+            </div>
+            <div class="reg-items pwd">
+              <input type="text" class="pwd-num" placeholder="请输入密码"/>
+              <a href="javascript:;" class="clear-fork">&nbsp;</a>
+            </div>
+            <a href="javascript:;" class="sub">注册</a>
+          </form>
+        </div>
+        <div class="other">我同意《服务条款》和《方寸堂隐私条款》</div>
+      </div>
+    </div>
+    <script src="../../../public/js/gt.js"></script>
     <!-- built files will be auto injected -->
+    <script>
+        let config = {
+            'code_url': '',
+            'login_url': ''
+        };
+
+    </script>
   </body>
 </html>

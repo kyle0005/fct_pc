@@ -1,4 +1,27 @@
 import swp from 'swiper';
+/* 注册 */
+const register = {
+    init: (el) => {
+
+    },
+    sub: (el) => {
+
+    }
+};
+/* banner滚动 */
+const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on) => {
+    new swp('.' + name, {
+        autoplay: autoplay,
+        loop : loop,
+        slidesPerView: slidesPerView,
+        effect: effect,
+        fadeEffect: fadeEffect,
+        navigation: navigation,
+        pagination: pagination,
+        on:on
+    });
+};
+/* 倒计时ui层 */
 const common = {
     countSuc: (time_obj, el) => {
         if(el.querySelector('.js-d')){
@@ -12,18 +35,7 @@ const common = {
         console.log('end')
     }
 };
-const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on) => {
-    new swp('.' + name, {
-        autoplay: autoplay,
-        loop : loop,
-        slidesPerView: slidesPerView,
-        effect: effect,
-        fadeEffect: fadeEffect,
-        navigation: navigation,
-        pagination: pagination,
-        on:on
-    });
-};
+/* 倒计时 */
 const countdown = (timestamp, succ, end, hasDay) => {
     let time_obj = {}, _initTime = new Date().getTime();
     let timer = setInterval(() => {
@@ -59,6 +71,7 @@ const countdown = (timestamp, succ, end, hasDay) => {
         }
     },1000);
 };
+/* 弹窗提示ui */
 const tips = () => {
     let pop_html = '<div class="js-tips-pop tips-pop hidden"><div class="text js-text"></div></div><div class="js-tips-bg tips-bg hidden"></div>';
     if(!document.querySelector('#tipsPop')){
@@ -68,6 +81,7 @@ const tips = () => {
         document.body.appendChild(_div);
     }
 };
+/* 弹出提示窗 */
 const showPop = (msg) => {
     let _el = document.querySelector('.js-tips-pop');
     let _tips_bg = document.querySelector('.js-tips-bg');
@@ -75,6 +89,7 @@ const showPop = (msg) => {
     _el.classList.remove('hidden');
     _tips_bg.classList.remove('hidden');
 };
+/* 关闭提示窗 */
 const hidePop = () => {
     let _el = document.querySelector('.js-tips-pop');
     let _tips_bg = document.querySelector('.js-tips-bg');
