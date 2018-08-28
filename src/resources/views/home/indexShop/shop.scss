@@ -127,6 +127,11 @@
           line-height: 30px;
           color: $color-8B572A;
           margin-bottom: 8px;
+          .link{
+            display: inline-block;
+            color: $color-8B572A;
+            font-size: $font-size-t28;
+          }
         }
         .tips{
           margin-bottom: 16px;

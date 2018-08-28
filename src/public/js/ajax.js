@@ -183,11 +183,12 @@ let jAjax = function (options) {
         createXHR();
     }
 };
-const ajaxGet = (url, callback, before, error) => {
+const ajaxGet = (url, callback, before, error, dataType) => {
     jAjax({
         type:'get',
         url:url,
         timeOut:5000,
+        dataType: dataType || '',
         before:function(){
             if(before){
                 before();
@@ -196,7 +197,7 @@ const ajaxGet = (url, callback, before, error) => {
         success:function(data){
             if(data){
                 data = JSON.parse(data);
-                if(parseInt(data.code) == 200 && callback){
+                if((parseInt(data.code) == 200 && callback) || (parseInt(data.success) == 1 && callback)){ /* 后者为gt验证条件 */
                     callback(data);
                 }else {
                     console.log('false')

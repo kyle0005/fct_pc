@@ -77,8 +77,11 @@
           margin-top: 20px;
           border: 1px solid $color-ccc;
         }
+        .login-items.val{
+          border: none;
+        }
         .phone{
-          background: url("../../../../public/img/icon_search.png") no-repeat 13px center;
+          background: url("../../../../public/img/login_phone.png") no-repeat 13px center;
           background-size: 14px 20px;
           .phone-num{
             width: calc(100% - 53px);
@@ -93,7 +96,7 @@
           }
         }
         .msg{
-          background: url("../../../../public/img/icon_notice.png") no-repeat 13px center;
+          background: url("../../../../public/img/login_msg.png") no-repeat 13px center;
           background-size: 14px 20px;
           .msg-num{
             width: calc(100% - 53px);

@@ -120,8 +120,8 @@ input:focus, select:focus, textarea:focus {
   display: none;
 }
 
-//注册
-.register{
+/* 登录&注册 弹窗 */
+.user-pop{
   position: fixed;
   top: 0;
   left: 0;
@@ -129,8 +129,8 @@ input:focus, select:focus, textarea:focus {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
-  display: none;
-  .register-container{
+  //display: none;
+  .user-pop-container{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -144,14 +144,13 @@ input:focus, select:focus, textarea:focus {
       height: 34px;
       width: 360px;
       border-bottom: 1px solid $color-e7e8e8;
-      .cur{
+      .r{
         position: relative;
         display: inline-block;
-        color: $color-333;
+        font-size: $font-size-t16;
+        color: $color-666;
         line-height: 18px;
-        height: 18px;
-        font-size: $font-size-t18;
-        font-weight: bold;
+        height: 16px;
         padding-right: 16px;
         &:after{
           content: '';
@@ -172,6 +171,12 @@ input:focus, select:focus, textarea:focus {
         line-height: 18px;
         height: 16px;
       }
+      .r.cur, .l.cur{
+        color: $color-333;
+        height: 18px;
+        font-size: $font-size-t18;
+        font-weight: bold;
+      }
       .close{
         display: inline-block;
         position: absolute;
@@ -183,10 +188,10 @@ input:focus, select:focus, textarea:focus {
         background-size: 18px 19px;
       }
     }
-    .reg-form{
+    .user-pop-form{
       margin: 0 auto;
       width: 360px;
-      .reg-items{
+      .user-pop-items{
         position: relative;
         width: calc(100% - 1px);
         height: 34px;
@@ -194,7 +199,7 @@ input:focus, select:focus, textarea:focus {
         border: 1px solid $color-ccc;
       }
       .phone{
-        background: url("../../../../public/img/icon_search.png") no-repeat 13px center;
+        background: url("../../../../public/img/login_phone.png") no-repeat 13px center;
         background-size: 14px 20px;
         .phone-num{
           width: calc(100% - 53px);
@@ -210,7 +215,7 @@ input:focus, select:focus, textarea:focus {
       }
       .msg{
         margin-top: 16px;
-        background: url("../../../../public/img/icon_notice.png") no-repeat 13px center;
+        background: url("../../../../public/img/login_msg.png") no-repeat 13px center;
         background-size: 14px 20px;
         .msg-num{
           width: calc(100% - 53px);
@@ -239,7 +244,7 @@ input:focus, select:focus, textarea:focus {
       }
       .pwd{
         margin-top: 16px;
-        background: url("../../../../public/img/password.png") no-repeat 13px center;
+        background: url("../../../../public/img/login_pwd.png") no-repeat 13px center;
         background-size: 14px 20px;
         .pwd-num{
           width: calc(100% - 53px);
@@ -277,6 +282,9 @@ input:focus, select:focus, textarea:focus {
       height: 20px;
       background: url("../../../../public/img/clear_fork.png") no-repeat center center;
       background-size: 20px 20px;
+    }
+    .clear-fork.hidden{
+      display: none;
     }
   }
 }

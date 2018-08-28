@@ -1,13 +1,4 @@
 import swp from 'swiper';
-/* 注册 */
-const register = {
-    init: (el) => {
-
-    },
-    sub: (el) => {
-
-    }
-};
 /* banner滚动 */
 const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on) => {
     new swp('.' + name, {
