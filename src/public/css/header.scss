@@ -7,7 +7,7 @@
     .inner{
       position: relative;
       margin: 0 auto;
-      width: 1400px;
+      width: 1090px;
       height: 100%;
       .l{
         position: absolute;
@@ -64,13 +64,13 @@
   .logo{
     position: relative;
     margin: 0 auto;
-    width: 1400px;
+    width: 1090px;
     height: 106px;
     background: url("../../../../public/img/logo.png") no-repeat center center;
     background-size: 150px 46px;
     .search-container{
       position: absolute;
-      right: 324px;
+      right: 15%;
       top: 50%;
       transform: translateY(-50%);
       width: 200px;
@@ -105,7 +105,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px auto 0;
+    margin: 10px auto 10px;
     width: 782px;
     height: 38px;
     li.items{
@@ -131,7 +131,7 @@
       &:after{
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         left: 0;
         width: 100%;
         height: 4px;
