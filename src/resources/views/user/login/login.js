@@ -3,13 +3,10 @@ import {tips, showPop, hidePop, countdown, swip, common} from '../../../../publi
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
 /* 加载全局注册模块 */
-user_pop_module.loadHtml();
 document.querySelector('.js-reg').addEventListener('click', (e) => {
     user_pop_module.pop_open();
 });
-document.querySelector('.js-close').addEventListener('click', (e) => {
-    user_pop_module.pop_close();
-});
+
 tips();
 let login = {
     code_url: config.code_url,

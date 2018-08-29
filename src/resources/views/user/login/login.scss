@@ -4,8 +4,8 @@
   @extend %page;
   .main{
     position: relative;
-    width: 1400px;
-    margin: 80px auto 105px;
+    width: $pahe-width-base;
+    margin: calc(80/1920*100%) auto calc(105/1920*100%);
     background-color: $color-white;
     &:after{
       content: '';
@@ -13,28 +13,36 @@
       bottom: -80px;
       left: 0;
       z-index: -1;
-      width: 1410px;
+      width: $pahe-width-base;
       height: 149px;
       background: url("../../../../public/img/shadow.png") no-repeat center center;
-      background-size: 1410px auto;
+      background-size: $pahe-width-base auto;
     }
-    .show-img{
-      width: 800px;
-      height: 700px;
+    .img-container{
+      position: relative;
+      width: calc(800/1400*100%);
+      padding-bottom: calc(700/1400*100%);
+      .show-img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
     .log-form{
       position: absolute;
       top: 0;
-      left: 800px;
-      width: 598px;
+      right: 0;
+      width: calc(598/1400*100%);
       height: calc(100% - 2px);
       border: 1px solid $color-e6e6e6;
-      background: url("../../../../public/img/logo2.png") no-repeat center 70px;
-      background-size: 150px auto;
+      background: url("../../../../public/img/logo2.png") no-repeat center calc(30/598*100%);
+      background-size: calc(150/598*100%) auto;
       .link-container{
-        margin: 180px auto 0;
+        margin: calc(120/598*100%) auto 0;
         height: 34px;
-        width: 360px;
+        width: calc(360/598*100%);
         border-bottom: 1px solid $color-e7e8e8;
         text-align: center;
         .cur{
@@ -65,16 +73,15 @@
           line-height: 18px;
           height: 16px;
         }
-
       }
       .login-form{
         margin: 0 auto;
-        width: 360px;
+        width: calc(360/598*100%);
         .login-items{
           position: relative;
           width: calc(100% - 1px);
           height: 42px;
-          margin-top: 20px;
+          margin-top: calc(15/360*100%);
           border: 1px solid $color-ccc;
         }
         .login-items.val{
@@ -82,7 +89,7 @@
         }
         .phone{
           background: url("../../../../public/img/login_phone.png") no-repeat 13px center;
-          background-size: 14px 20px;
+          background-size: 14px 14px;
           .phone-num{
             width: calc(100% - 53px);
             margin: 14px 13px 14px 40px;
@@ -97,7 +104,7 @@
         }
         .msg{
           background: url("../../../../public/img/login_msg.png") no-repeat 13px center;
-          background-size: 14px 20px;
+          background-size: 14px 14px;
           .msg-num{
             width: calc(100% - 53px);
             margin: 14px 13px 14px 40px;
@@ -124,14 +131,28 @@
           }
         }
         .sub{
-          margin-top: 30px;
+          margin-top: calc(20/360*100%);
           text-align: center;
-          @include wei-bg-btn(360px, 50px, $font-size-t16, $color-white, $color-333, $color-333, 0);
+          &,
+          &:link,
+          &:visited,
+          &:hover,
+          &:active {
+            width: calc(100% - 2px);
+            display: inline-block;
+            color: $color-white;
+            border: 1px solid $color-333;
+            background-color: $color-333;
+            height: 48px;
+            line-height: 50px;
+            font-size: $font-size-t16;
+            border-radius: 0;
+          }
         }
       }
       .other{
-        margin: 50px auto 0;
-        width: 204px;
+        margin: calc(30/598*100%) auto 0;
+        width: calc(204/598*100%);
         .title{
           position: relative;
           width: 100%;
@@ -164,12 +185,12 @@
         .links{
           position: relative;
           display: block;
-          margin: 16px auto 0;
-          width: 66px;
-          padding-bottom: 90px;
+          margin: calc(16/204*100%) auto 0;
+          width: calc(76/204*100%);
+          padding-bottom: calc(112/204*100%);
           text-align: center;
           background: url("../../../../public/img/wechat.png") no-repeat center top;
-          background-size: 66px auto;
+          background-size: 100% auto;
           .l-txt{
             position: absolute;
             left: 0;

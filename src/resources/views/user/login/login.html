@@ -23,7 +23,9 @@
         </section>
       </div>
       <section class="main">
+        <div class="img-container">
           <img src="../../../public/img/login.png" class="show-img">
+        </div>
           <div class="log-form">
             <div class="link-container">
               <a href="javascript:;" class="cur">手机号登录</a>
@@ -57,7 +59,7 @@
 
 
     <!-- 注册&登录 弹窗 -->
-    <div class="user-pop">
+    <div class="js-user-pop user-pop hidden">
       <div class="user-pop-container">
         <div class="link-container">
           <a href="javascript:;" class="js-r r cur">快速注册</a>
@@ -77,6 +79,7 @@
               <input type="text" name="sms_code" class="msg-num" placeholder="请输入短信验证码"/>
               <a href="javascript:;" class="js-get-code get-code">获取验证码</a>
             </div>
+            <div class="js-t-tips t-tips hidden"></div>
             <a href="javascript:;" class="js-sub sub">注册</a>
           </form>
         </div>
@@ -86,14 +89,22 @@
     <script src="http://static.geetest.com/static/tools/gt.js"></script>
     <!-- built files will be auto injected -->
     <script>
-        let config = {
-            'code_url': '',
-            'login_url': '',
-            'gt_url': 'http://test.pc.fangcun.com/geetest',
-            'gt_product': '',
-            'gt_lang': '',
-            'gt_http': ''
-        };
+      let userInfo = {
+          'code_url': '',
+          'login_url': '',
+          'gt_url': 'http://test.pc.fangcun.com/geetest',
+          'gt_product': '',
+          'gt_lang': '',
+          'gt_http': ''
+      };
+      let config = {
+          'code_url': '',
+          'login_url': '',
+          'gt_url': 'http://test.pc.fangcun.com/geetest',
+          'gt_product': '',
+          'gt_lang': '',
+          'gt_http': ''
+      };
 
     </script>
   </body>

@@ -60,17 +60,17 @@
     }
   }
   .main{
-    width: 1400px;
+    width: $pahe-width-base;
     margin: 0 auto;
     .condition{
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: calc(30/1400*100%);
       .con{
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
-        padding: 12px 0;
+        padding: calc(12/1400*100%) 0;
         border-bottom: 1px solid $color-e6e6e6;
         .t{
           -moz-box-flex: 1.0; /* Firefox */
@@ -79,14 +79,14 @@
           font-size: $font-size-t14;
           line-height: 14px;
           color: $color-999;
-          margin-right: 20px;
-          width: 60px;
+          margin-right: calc(20/1400*100%);
+          width: calc(80/1400*100%);
         }
         .r{
           -moz-box-flex: 1.0; /* Firefox */
           -webkit-box-flex: 1.0; /* Safari 和 Chrome */
           box-flex: 1.0;
-          width: 1320px;
+          width: calc(1300/1400*100%);
           .chosen{
             position: relative;
             display: inline-block;
@@ -218,34 +218,49 @@
       justify-content: space-around;
       align-items: center;
       flex-wrap: wrap;
-      margin-bottom: 50px;
+      margin-bottom: calc(50/1400*100%);
       .pro-items{
         -moz-box-flex: 1.0; /* Firefox */
         -webkit-box-flex: 1.0; /* Safari 和 Chrome */
         box-flex: 1.0;
-        width: 344px;
+        width: calc(344/1400*100%);
         .link{
           display: block;
           width: 100%;
           background-color: $color-fafafa;
           text-align: center;
-          .pro-img{
-            width: 344px;
-            height: 344px;
+          .img-contanier{
+            position: relative;
+            display: block;
+            width: 100%;
+            padding-bottom: 100%;
+            .pro-img{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
           }
           .title{
+            width: 92%;
+            margin: 0 auto;
             display: block;
+            text-align: left;
             color: $color-333;
             font-size: $font-size-t16;
             line-height: 22px;
-            padding: 20px 0 8px 0;
+            padding: calc(20/344*100%) 0 calc(8/344*100%) 0;
           }
           .vtitle{
+            width: 92%;
+            margin: 0 auto;
             display: block;
+            text-align: left;
             color: $color-999;
             font-size: $font-size-t16;
             line-height: 22px;
-            padding-bottom: 20px;
+            padding-bottom: calc(20/344*100%);
           }
         }
         .link:hover{

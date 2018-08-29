@@ -4,7 +4,7 @@
 .shop-container{
   @extend %page;
   .links{
-    width: 1400px;
+    width: $pahe-width-base;
     margin: 16px auto 24px;
     .link{
       display: inline-block;
@@ -21,14 +21,17 @@
   }
   .detail{
     position: relative;
-    width: 1400px;
+    width: $pahe-width-base;
     margin: 0 auto 50px;
+    padding-bottom: 50px;
     .photo-swp{
       position: relative;
-      width: 500px;
-      height: 500px;
+      width: calc(500/1400*100%);
+      padding-bottom:calc(500/1400*100%);
       .photo-container{
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         overflow: hidden;
@@ -47,13 +50,15 @@
         bottom: auto;
         left: 100%;
         top: 0;
+        width: calc(104/500*100%);
       }
       .swiper-pagination-bullet{
         position: relative;
         display: inline-block;
-        width: 80px;
-        height: 80px;
-        margin: 0 0 20px 20px;
+        width: calc(80/104*100%);
+        height: auto;
+        padding-bottom: calc(80/104*100%);
+        margin: 0 0 calc(20/104*100%) calc(20/104*100%);
         border-radius: 0;
         border: 2px solid $color-white;
         opacity: 1;
@@ -61,6 +66,9 @@
         box-shadow: none;
         -webkit-tap-highlight-color:transparent;
         .bu-img{
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
         }
@@ -74,314 +82,334 @@
     }
     .pro-detail{
       position: absolute;
-      top: 50%;
+      top: 0;
       right: 0;
-      transform: translateY(-50%);
-      width: 736px;
-      .product{
-        width: 70%;
-        margin-bottom: 16px;
-        .title{
-          font-size: $font-size-t30;
-          line-height: 30px;
-          margin-bottom: 10px;
-          .mark{
-            display: inline-block;
-            width: 60px;
-            height: 24px;
-            margin-left: 10px;
-            line-height: 24px;
-            text-align: center;
-            background: $color-8B572A;
-            color: $color-white;
-            font-size: $font-size-t14;
-            vertical-align: text-top;
-          }
-        }
-        .vtitle{
-          font-size: $font-size-t16;
-          line-height: 16px;
-          color: $color-999;
-          margin-bottom: 15px;
-        }
-        .esp{
-          width: 456px;
-          height: 36px;
-          line-height: 36px;
-          background-color: $color-8B572A;
-          color: $color-white;
-          margin-bottom: 8px;
-          font-size: $font-size-t16;
-          .n{
-            display: inline-block;
-            margin: 0 8px 0 16px;
-            font-size: $font-size-t18;
-          }
-          .p{
-            display: inline-block;
-            margin-right: 8px;
-          }
-        }
-        .price{
-          font-size: $font-size-t30;
-          line-height: 30px;
-          color: $color-8B572A;
-          margin-bottom: 8px;
-          .link{
-            display: inline-block;
-            color: $color-8B572A;
-            font-size: $font-size-t28;
-          }
-        }
-        .tips{
-          margin-bottom: 16px;
-          .tip{
-            display: inline-block;
-            background: url("../../../../public/img/icon_yes.png") no-repeat center left;
-            background-size: 14px 14px;
-            font-size: $font-size-t14;
-            line-height: 14px;
-            color: $color-999;
-            padding: 0 20px;
-          }
-        }
-        .coupon{
-          .get-title{
-            display: inline-block;
-            font-size: $font-size-t14;
-            line-height: 16px;
-            color: $color-666;
-          }
-          .coups{
-            position: relative;
-            display: inline-block;
-            margin-left: 6px;
-            font-size: $font-size-t13;
-            line-height: 18px;
-            height: 16px;
-            color: $color-8B572A;
-            padding: 0 10px;
-            border-top: 1px solid $color-8B572A;
-            border-bottom: 1px solid $color-8B572A;
-            .bor-bef{
-              position: absolute;
-              top: 50%;
-              left: 0;
-              z-index: 2;
-              transform: translateY(-50%);
-              width: 2.5px;
-              height: 90%;
-              background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
-              background-image: -moz-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
-              background-image: radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px,  transparent 2px, transparent);
-              background-size: 5px 5px;
-              background-position: 3px 0;
-            }
-            &:before{
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: 1;
-              width: 1px;
-              height: 100%;
-              background-color: $color-8B572A;
-            }
-            .bor-aft{
-              position: absolute;
-              top: 50%;
-              right: 0;
-              z-index: 2;
-              transform: translateY(-50%);
-              width: 2.5px;
-              height: 90%;
-              background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
-              background-image: -moz-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
-              background-image: radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px,  transparent 2px, transparent);
-              background-size: 5px 5px;
-              background-position: -0.6px 0;
-            }
-            &:after{
-              content: '';
-              position: absolute;
-              top: 0;
-              right: 0;
-              z-index: 1;
-              width: 1px;
-              height: 100%;
-              background-color: $color-8B572A;
-            }
-          }
-          .get-link{
-            display: inline-block;
-            margin-left: 10px;
-            font-size: $font-size-t14;
-            line-height: 16px;
-            color: $color-8B572A;
-          }
-        }
-      }
-      .pro-qrcode{
+      width: calc(736/1400*100%);
+      padding-bottom: calc(500/1400*100%);
+      .inner{
         position: absolute;
         top: 0;
-        right: 0;
-        text-align: right;
-        width: 203px;
-        img{
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 120px;
-          height: 120px;
-        }
-        .nums-n{
-          font-size: $font-size-t30;
-          line-height: 30px;
-          color: $color-8B572A;
-          margin-bottom: 8px;
-        }
-        .nums-t{
-          font-size: $font-size-t16;
-          line-height: 16px;
-          color: $color-999;
-        }
-      }
-      .pro-info{
-        width: calc(100% - 40px);
-        height: 80px;
-        background: $color-fafafa;
-        padding: 20px;
-        line-height: 16px;
-        font-size: $font-size-t16;
-        margin-bottom: 12px;
-        .line{
-          margin-bottom: 16px;
-        }
-        .r{
-          display: inline-block;
-          width: 238px;
-          .l{
-            color: $color-666;
-            margin-right: 8px;
-          }
-        }
-      }
-      .choose-spec{
-        position: relative;
+        left: 0;
         width: 100%;
-        margin-bottom: 8px;
-        .txt{
-          position: absolute;
-          left: 0;
-          top: 10px;
-          display: inline-block;
-          width: 38px;
-          line-height: 20px;
-          font-size: $font-size-t14;
-          color: $color-363738;
-        }
-        .specs-list{
-          margin-left: 38px;
-          font-size: 0;
-          .specs-items{
-            display: inline-block;
-            width: 98px;
-            height: 38px;
-            line-height: 40px;
-            margin-right: 10px;
-            border: 1px solid rgba(54,55,56,0.20);
-            color: $color-333;
+        height: 100%;
+        .product{
+          width: 100%;
+          margin-bottom: calc(16/736*100%);
+          .title{
+            font-size: $font-size-t26;
+            line-height: 26px;
+            margin-bottom: calc(10/736*100%);
+            font-weight: bold;
+            .mark{
+              display: inline-block;
+              width: calc(60/736*100%);
+              height: 22px;
+              margin-left: calc(10/736*100%);
+              line-height: 22px;
+              text-align: center;
+              background: $color-8B572A;
+              color: $color-white;
+              font-size: $font-size-t12;
+              vertical-align: text-top;
+            }
+          }
+          .vtitle{
+            font-size: $font-size-t16;
+            line-height: 16px;
+            color: $color-999;
+            margin-bottom: calc(15/736*100%);
+          }
+          .esp{
+            width: calc(456/736*100%);
+            height: 30px;
+            line-height: 30px;
+            background-color: $color-8B572A;
+            color: $color-white;
+            margin-bottom: calc(8/736*100%);
             font-size: $font-size-t14;
             text-align: center;
+            .n{
+              display: inline-block;
+              margin: 0 calc(8/456*100%) 0 0;
+              font-size: $font-size-t16;
+            }
+            .p{
+              display: inline-block;
+              margin-right: calc(8/456*100%);
+            }
           }
-          .specs-items.chosen{
-            border: 1px solid $color-8B572A;
+          .price{
+            font-size: $font-size-t26;
+            line-height: 26px;
+            color: $color-8B572A;
+            margin-bottom: calc(8/736*100%);
+            .link{
+              display: inline-block;
+              color: $color-8B572A;
+              font-size: $font-size-t24;
+            }
+          }
+          .tips{
+            margin-bottom: calc(16/736*100%);
+            .tip{
+              display: inline-block;
+              background: url("../../../../public/img/icon_yes.png") no-repeat center left;
+              background-size: 14px 14px;
+              font-size: $font-size-t14;
+              line-height: 14px;
+              color: $color-999;
+              padding: 0 calc(16/456*100%);
+            }
+          }
+          .coupon{
+            .get-title{
+              display: inline-block;
+              font-size: $font-size-t14;
+              line-height: 14px;
+              color: $color-666;
+            }
+            .coups{
+              position: relative;
+              display: inline-block;
+              margin-left: calc(12/736*100%);
+              font-size: $font-size-t14;
+              line-height: 18px;
+              height: 18px;
+              color: $color-8B572A;
+              padding: 0 calc(10/736*100%);
+              border-top: 1px solid $color-8B572A;
+              border-bottom: 1px solid $color-8B572A;
+              .bor-bef{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                z-index: 2;
+                transform: translateY(-50%);
+                width: 2.5px;
+                height: 90%;
+                background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+                background-image: -moz-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+                background-image: radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px,  transparent 2px, transparent);
+                background-size: 5px 5px;
+                background-position: 3px 0;
+              }
+              &:before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                width: 1px;
+                height: 100%;
+                background-color: $color-8B572A;
+              }
+              .bor-aft{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                z-index: 2;
+                transform: translateY(-50%);
+                width: 2.5px;
+                height: 90%;
+                background-image: -webkit-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+                background-image: -moz-radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px, transparent 2px, transparent);
+                background-image: radial-gradient(circle, $color-white, $color-white 1px, $color-8B572A 1px, $color-8B572A 2px,  transparent 2px, transparent);
+                background-size: 5px 5px;
+                background-position: -0.6px 0;
+              }
+              &:after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 1;
+                width: 1px;
+                height: 100%;
+                background-color: $color-8B572A;
+              }
+            }
+            .get-link{
+              display: inline-block;
+              margin-left: calc(10/736*100%);
+              font-size: $font-size-t14;
+              line-height: 16px;
+              color: $color-8B572A;
+            }
           }
         }
-      }
-      .choose-num{
-        position: relative;
-        width: 250px;
-        height: 40px;
-        margin-bottom: 12px;
-        .txt{
-          float: left;
-          display: inline-block;
-          width: 38px;
-          text-align: left;
-          font-size: $font-size-t14;
-          color: $color-363738;
-          height: 40px;
-          line-height: 40px;
-        }
-        .inp{
-          float: left;
-          width: 145px;
-          height: 38px;
-          line-height: 40px;
-          border: 1px solid rgba(54,55,56,0.20);
-          background: transparent;
-          padding: 0 49px 0 16px;
-        }
-        .change-num{
+        .pro-qrcode{
           position: absolute;
-          right: 0;
           top: 0;
-          width: 32px;
-          height: 40px;
-          border-left: 1px solid rgba(54,55,56,0.20);
-          .add{
+          right: 0;
+          text-align: right;
+          width: calc(203/736*100%);
+          .img-container{
             position: absolute;
+            left: 0;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 32px;
-            height: 20px;
-            background: url("../../../../public/img/n_add.png") no-repeat center center;
-            background-size: 5px 4px;
+            width: calc(120/203*100%);
+            padding-bottom: calc(120/203*100%);
+            height: auto;
+            img{
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+            }
           }
-          .minus{
+          .nums-n{
+            font-size: $font-size-t30;
+            line-height: 30px;
+            color: $color-8B572A;
+            margin-bottom: calc(8/203*100%);
+          }
+          .nums-t{
+            font-size: $font-size-t16;
+            line-height: 16px;
+            color: $color-999;
+          }
+        }
+        .pro-info{
+          width: calc(696/736*100%);
+          background: $color-fafafa;
+          padding: calc(20/736*100%);
+          line-height: 16px;
+          font-size: $font-size-t16;
+          margin-bottom: calc(12/736*100%);
+          .line{
+            margin-bottom: calc(16/696*100%);
+          }
+          .r{
+            display: inline-block;
+            width:  calc(238/696*100%);
+            .l{
+              color: $color-666;
+              margin-right:  calc(8/238*100%);
+            }
+          }
+        }
+        .choose-spec{
+          position: relative;
+          width: 100%;
+          margin-bottom: calc(8/736*100%);
+          .txt{
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-block;
+            width: calc(38/736*100%);
+            line-height: 20px;
+            font-size: $font-size-t14;
+            color: $color-363738;
+          }
+          .specs-list{
+            margin-left: calc(49/736*100%);
+            font-size: 0;
+            width: calc(698/736*100%);
+            .specs-items{
+              display: inline-block;
+              width: calc(120/698*100%);
+              height: 38px;
+              line-height: 40px;
+              margin-right: calc(10/698*100%);
+              border: 1px solid rgba(54,55,56,0.20);
+              color: $color-333;
+              font-size: $font-size-t14;
+              text-align: center;
+            }
+            .specs-items.chosen{
+              border: 1px solid $color-8B572A;
+            }
+          }
+        }
+        .choose-num{
+          position: relative;
+          width: 250px;
+          height: 40px;
+          margin-bottom: 12px;
+          .txt{
+            float: left;
+            display: inline-block;
+            width: 38px;
+            text-align: left;
+            font-size: $font-size-t14;
+            color: $color-363738;
+            height: 40px;
+            line-height: 40px;
+          }
+          .inp{
+            float: left;
+            width: 145px;
+            height: 38px;
+            line-height: 40px;
+            border: 1px solid rgba(54,55,56,0.20);
+            background: transparent;
+            padding: 0 49px 0 16px;
+          }
+          .change-num{
+            position: absolute;
+            right: 0;
+            top: 0;
             width: 32px;
-            height: 20px;
-            background: url("../../../../public/img/n_minus.png") no-repeat center center;
-            background-size: 5px 4px;
+            height: 40px;
+            border-left: 1px solid rgba(54,55,56,0.20);
+            .add{
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 32px;
+              height: 20px;
+              background: url("../../../../public/img/n_add.png") no-repeat center center;
+              background-size: 5px 4px;
+            }
+            .minus{
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 32px;
+              height: 20px;
+              background: url("../../../../public/img/n_minus.png") no-repeat center center;
+              background-size: 5px 4px;
+            }
+          }
+        }
+        .sub{
+          font-size: 0;
+          .buy{
+            @include wei-bg-btn(225px, 44px, $font-size-t14, $color-white, $color-333, $color-333, 0);
+            margin-right: 10px;
+            text-align: center;
+          }
+          .cart{
+            @include wei-bg-btn(225px, 44px, $font-size-t14, $color-333, $color-white, $color-333, 0);
+            margin-right: 10px;
+            background: url("../../../../public/img/shop_cart.png") no-repeat 60px center;
+            background-size: 17px 17px;
+            text-indent: 86px;
+          }
+          .fav{
+            @include wei-bg-btn(98px, 44px, $font-size-t14, $color-333, $color-white, $color-333, 0);
+            background: url("../../../../public/img/shop_fav.png") no-repeat 20px center;
+            background-size: 13px 13px;
+            text-indent: 40px;
           }
         }
       }
-      .sub{
-        .buy{
-          @include wei-bg-btn(250px, 44px, $font-size-t14, $color-white, $color-333, $color-333, 0);
-          margin-right: 10px;
-          text-align: center;
-        }
-        .cart{
-          @include wei-bg-btn(250px, 44px, $font-size-t14, $color-333, $color-white, $color-333, 0);
-          margin-right: 10px;
-          background: url("../../../../public/img/shop_cart.png") no-repeat 77px center;
-          background-size: 17px 17px;
-          text-indent: 102px;
-        }
-        .fav{
-          @include wei-bg-btn(100px, 44px, $font-size-t14, $color-333, $color-white, $color-333, 0);
-          background: url("../../../../public/img/shop_fav.png") no-repeat 25px center;
-          background-size: 13px 13px;
-          text-indent: 46px;
-        }
-      }
+
     }
   }
   .main{
     position: relative;
-    width: 1400px;
+    width: $pahe-width-base;
     margin: 0 auto;
     .left{
       float: left;
-      width: 380px;
-      margin-right: 20px;
+      width: calc(380/1400*100%);
+      margin-right: calc(20/1400*100%);
       .hot{
         width: 100%;
         margin-bottom: 42px;
@@ -460,7 +488,7 @@
     }
     .right{
       float: left;
-      width: 1000px;
+      width: calc(1000/1400*100%);
       .inner{
         width: 100%;
         .tabs{
@@ -952,16 +980,16 @@
   }
   .optimization{
     position: relative;
-    width: 1400px;
-    margin: 50px auto 50px;
-    padding-bottom: 30px;
+    width: $pahe-width-base;
+    margin: calc(50/1920*100%) auto calc(50/1920*100%);
+    padding-bottom: calc(30/1920*100%);
     border: 1px solid $color-eee;
     .title{
       position: relative;
-      width: 1360px;
-      margin: 20px 20px 16px 20px;
+      width: calc(1360/1400*100%);
+      margin: calc(20/1400*100%) calc(20/1400*100%) calc(16/1400*100%) calc(20/1400*100%);
       .m{
-        margin-right: 16px;
+        margin-right: calc(16/1360*100%);
         display: inline-block;
         height: 26px;
         line-height: 26px;
@@ -983,7 +1011,7 @@
     }
     .main{
       position: relative;
-      width: 1360px;
+      width: calc(1360/1400*100%);
       margin: 0 auto;
       .opt-container{
         margin: 0 auto;
@@ -991,12 +1019,12 @@
         overflow: hidden;
         list-style: none;
         z-index: 1;
-        width: 1264px;
+        width: calc(1264/1360*100%);
         padding: 0;
         height: 100%;
         .l-items{
           display: block;
-          width: 300px;
+          width: 92%;
           margin: 0 auto;
           .mark{
             position: absolute;
@@ -1024,11 +1052,14 @@
             height: 52px;
             background-color: $color-fafafa;
             .t{
+              margin: 0 auto 8px;
+              width: 90%;
               display: block;
               color: $color-333;
-              margin-bottom: 8px;
             }
             .v{
+              margin: 0 auto;
+              width: 90%;
               display: block;
               color: $color-999;
             }
