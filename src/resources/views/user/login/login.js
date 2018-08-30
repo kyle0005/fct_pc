@@ -4,7 +4,13 @@ import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
 /* 加载全局注册模块 */
 document.querySelector('.js-reg').addEventListener('click', (e) => {
-    user_pop_module.pop_open();
+    user_pop_module.pop_open(0);
+});
+document.querySelector('.js-pop-login').addEventListener('click', (e) => {
+    user_pop_module.pop_open(1);
+});
+document.querySelector('.js-pop-reg').addEventListener('click', (e) => {
+    user_pop_module.pop_open(0);
 });
 
 tips();
@@ -18,7 +24,11 @@ let login = {
         console.log('before')
     },
     success: function(data, paras){
-        console.log('success')
+        console.log('success');
+        window.location.reload();
+    },
+    val_suc: function(data){
+        console.log('val success')
     },
     error: function(){
         console.log('error')
@@ -94,7 +104,7 @@ document.querySelector('.js-get-code').addEventListener('click', (e) => {
                 'geetest_validate': login.validate_flag.geetest_validate,
                 'geetest_seccode': login.validate_flag.geetest_seccode
             },
-            login.success,
+            login.val_suc,
             login.before,
             login.error,
             {},

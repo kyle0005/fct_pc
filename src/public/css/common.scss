@@ -199,6 +199,7 @@ input:focus, select:focus, textarea:focus {
       }
       .user-pop-items.val{
         border: none;
+        height: 44px;
       }
       .phone{
         background: url("../../../../public/img/login_phone.png") no-repeat 13px center;
@@ -262,14 +263,21 @@ input:focus, select:focus, textarea:focus {
       }
       .t-tips{
         margin-top: 6px;
-        background: url("../../../../public/img/t.png") no-repeat center center;
+        background: url("../../../../public/img/t.png") no-repeat left center;
         background-size: 14px 14px;
+        color: #d4282d;
+        font-size: 14px;
+        line-height: 14px;
+        height: 14px;
+        vertical-align: top;
+        text-indent: 20px;
+        opacity: 1;
       }
       .t-tips.hidden{
-        display: none;
+        opacity: 0;
       }
       .sub{
-        margin-top: 30px;
+        margin-top: 20px;
         text-align: center;
         @include wei-bg-btn(360px, 50px, $font-size-t16, $color-white, $color-333, $color-333, 0);
       }

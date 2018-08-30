@@ -2,15 +2,20 @@ import {ajaxGet, ajaxPost, formData} from './ajax';
 /* 登录&注册 弹窗 */
 const user_pop_module = {
     user_pop_data: {
-        code_url: userInfo.code_url,
-        login_url: userInfo.login_url,
-        gt_url: userInfo.gt_url,
+        code_url: config.code_url,
+        login_url: config.login_url,
+        gt_url: config.gt_url,
         validate_flag: false,
+        prev_click: false,
         before: function(){
             console.log('before')
         },
         success: function(data, paras){
             console.log('success')
+            window.location.reload();
+        },
+        val_suc: function(data){
+            console.log('val success')
         },
         error: function(){
             console.log('error')
@@ -28,7 +33,7 @@ const user_pop_module = {
                 setTimeout(function () {
                     /* 隐藏提示 */
                     document.querySelector('.js-t-tips').classList.add('hidden');
-                }, 1500);
+                }, 5000);
             }
         },
         gt_validate_succ: function (data) {
@@ -37,14 +42,15 @@ const user_pop_module = {
                 challenge: data.challenge,
                 offline: !data.success,
                 new_captcha: true,
-                product: userInfo.gt_product,
-                lang: userInfo.gt_lang,
-                http: userInfo.gt_http,
+                product: config.gt_product,
+                lang: config.gt_lang,
+                http: config.gt_http,
                 width: '100%'
             }, user_pop_module.user_pop_data.gt_handler)
         },
         gt_handler: function (captchaObj) {
-            captchaObj.appendTo(document.querySelector('#captcha'));
+            document.querySelector('#captchaReg').innerHTML = '';
+            captchaObj.appendTo(document.querySelector('#captchaReg'));
             captchaObj.onReady(function(){
 
             }).onSuccess(function(){
@@ -63,19 +69,22 @@ const user_pop_module = {
             if(!document.querySelector('.js-r').classList.contains('cur')){
                 document.querySelector('.js-r').classList.add('cur');
                 document.querySelector('.js-l').classList.remove('cur');
-                document.querySelector('.js-sub').innerHTML = '注册';
+                document.querySelector('.js-sub-p').innerHTML = '注册';
             }
         });
         document.querySelector('.js-l').addEventListener('click', (e) => {
             if(!document.querySelector('.js-l').classList.contains('cur')){
                 document.querySelector('.js-l').classList.add('cur');
                 document.querySelector('.js-r').classList.remove('cur');
-                document.querySelector('.js-sub').innerHTML = '登录';
+                document.querySelector('.js-sub-p').innerHTML = '登录';
             }
         });
-        document.querySelector('.js-get-code').addEventListener('click', (e) => {
-            let _el = document.querySelector('.js-get-code');
-            let _phone = document.querySelector('.js-phone-num').value;
+        document.querySelector('.js-get-code-p').addEventListener('click', (e) => {
+            if(user_pop_module.user_pop_data.prev_click){
+                return;
+            }
+            let _el = document.querySelector('.js-get-code-p');
+            let _phone = document.querySelector('.js-phone-num-p').value;
             if(!/^1\d{10}$/gi.test(_phone)){
                 user_pop_module.user_pop_data.tips({
                     'message': '手机号码格式不正确'
@@ -86,17 +95,19 @@ const user_pop_module = {
                     'message': '请输入手机号码'
                 })
             }
-            else if(!login.validate_flag){
+            else if(!user_pop_module.user_pop_data.validate_flag){
                 user_pop_module.user_pop_data.tips({
                     'message': '请滑动验证码'
                 })
             }
             else {
                 let computedTime = 60;
+                user_pop_module.user_pop_data.prev_click = true;
                 let timer = setInterval(() => {
                     computedTime --;
                     _el.innerHTML = '已发送(' + computedTime + 's)';
                     if (computedTime === 0) {
+                        user_pop_module.user_pop_data.prev_click = false;
                         clearInterval(timer);
                         _el.innerHTML = '获取验证码';
                     }
@@ -110,7 +121,7 @@ const user_pop_module = {
                         'geetest_validate': user_pop_module.user_pop_data.validate_flag.geetest_validate,
                         'geetest_seccode': user_pop_module.user_pop_data.validate_flag.geetest_seccode
                     },
-                    user_pop_module.user_pop_data.success,
+                    user_pop_module.user_pop_data.val_suc,
                     user_pop_module.user_pop_data.before,
                     user_pop_module.user_pop_data.error,
                     {},
@@ -118,19 +129,19 @@ const user_pop_module = {
                 );
             }
         });
-        document.querySelector('.js-clear-fork').addEventListener('click', (e) => {
-            document.querySelector('.js-phone-num').value = '';
+        document.querySelector('.js-clear-fork-p').addEventListener('click', (e) => {
+            document.querySelector('.js-phone-num-p').value = '';
         });
-        document.querySelector('.js-phone-num').addEventListener('keyup', (e) => {
-            if(document.querySelector('.js-phone-num').value){
-                document.querySelector('.js-clear-fork').classList.remove('hidden');
+        document.querySelector('.js-phone-num-p').addEventListener('keyup', (e) => {
+            if(document.querySelector('.js-phone-num-p').value){
+                document.querySelector('.js-clear-fork-p').classList.remove('hidden');
             }else {
-                document.querySelector('.js-clear-fork').classList.add('hidden');
+                document.querySelector('.js-clear-fork-p').classList.add('hidden');
             }
         });
-        document.querySelector('.js-login').addEventListener('click', (e) => {
-            let _phone = document.querySelector('.js-phone-num').value;
-            let _msg = document.querySelector('.js-msg-num').value;
+        document.querySelector('.js-sub-p').addEventListener('click', (e) => {
+            let _phone = document.querySelector('.js-phone-num-p').value;
+            let _msg = document.querySelector('.js-msg-num-p').value;
             if(!/^1\d{10}$/gi.test(_phone)){
                 user_pop_module.user_pop_data.tips({
                     'message': '手机号码格式不正确'
@@ -149,7 +160,7 @@ const user_pop_module = {
             else {
                 ajaxPost(
                     user_pop_module.user_pop_data.login_url,
-                    formData.serializeForm('quickLogin'),
+                    formData.serializeForm('user'),
                     user_pop_module.user_pop_data.success,
                     user_pop_module.user_pop_data.before,
                     user_pop_module.user_pop_data.error,
@@ -166,10 +177,25 @@ const user_pop_module = {
             'json'
         );
     },
-    pop_open: () => {
+    pop_open: (flag) => {
         /* 打开弹窗 */
         if(document.querySelector('.js-user-pop').classList.contains('hidden')){
             document.querySelector('.js-user-pop').classList.remove('hidden');
+        }
+        if(parseInt(flag) === 0){
+            /* 注册 */
+            if(!document.querySelector('.js-r').classList.contains('cur')){
+                document.querySelector('.js-r').classList.add('cur');
+                document.querySelector('.js-l').classList.remove('cur');
+                document.querySelector('.js-sub-p').innerHTML = '注册';
+            }
+        }else if(parseInt(flag) === 1){
+            /* 登录 */
+            if(!document.querySelector('.js-l').classList.contains('cur')){
+                document.querySelector('.js-l').classList.add('cur');
+                document.querySelector('.js-r').classList.remove('cur');
+                document.querySelector('.js-sub-p').innerHTML = '登录';
+            }
         }
         user_pop_module.init();
 

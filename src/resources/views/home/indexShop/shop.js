@@ -3,6 +3,13 @@ import './shop.scss';
 import "@babel/polyfill";
 import {tips, showPop, hidePop, countdown, swip, common} from '../../../../public/js/common';
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
+import {user_pop_module} from '../../../../public/js/user';
+document.querySelector('.js-pop-login').addEventListener('click', (e) => {
+    user_pop_module.pop_open(1);
+});
+document.querySelector('.js-pop-reg').addEventListener('click', (e) => {
+    user_pop_module.pop_open(0);
+});
 tips();
 let shop = {
     getCoupon_url: config.getCouponUrl,
