@@ -215,7 +215,7 @@
     .pro-list{
       width: 100%;
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: calc(50/1400*100%);
@@ -224,6 +224,7 @@
         -webkit-box-flex: 1.0; /* Safari 和 Chrome */
         box-flex: 1.0;
         width: calc(344/1400*100%);
+        margin-right: calc(6/1400*100%);
         .link{
           display: block;
           width: 100%;
@@ -242,26 +243,32 @@
               height: 100%;
             }
           }
-          .title{
-            width: 92%;
-            margin: 0 auto;
+          .text-contanier{
             display: block;
-            text-align: left;
-            color: $color-333;
-            font-size: $font-size-t16;
-            line-height: 22px;
-            padding: calc(20/344*100%) 0 calc(8/344*100%) 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            .title{
+              width: 92%;
+              margin: 0 auto;
+              display: block;
+              text-align: left;
+              color: $color-333;
+              font-size: $font-size-t16;
+              line-height: 22px;
+              padding: calc(20/344*100%) 0 calc(8/344*100%) 0;
+            }
+            .vtitle{
+              width: 92%;
+              margin: 0 auto;
+              text-align: left;
+              color: $color-999;
+              font-size: $font-size-t16;
+              line-height: 22px;
+              margin-bottom: calc(20/344*100%);
+            }
           }
-          .vtitle{
-            width: 92%;
-            margin: 0 auto;
-            display: block;
-            text-align: left;
-            color: $color-999;
-            font-size: $font-size-t16;
-            line-height: 22px;
-            padding-bottom: calc(20/344*100%);
-          }
+
         }
         .link:hover{
           background-color: $color-fafafa;
