@@ -3,15 +3,21 @@ import {tips, showPop, hidePop, countdown, swip, common} from '../../../../publi
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
 /* 加载全局注册模块 */
-document.querySelector('.js-reg').addEventListener('click', (e) => {
-    user_pop_module.pop_open(0);
-});
-document.querySelector('.js-pop-login').addEventListener('click', (e) => {
-    user_pop_module.pop_open(1);
-});
-document.querySelector('.js-pop-reg').addEventListener('click', (e) => {
-    user_pop_module.pop_open(0);
-});
+if(document.querySelector('.js-reg')){
+    document.querySelector('.js-reg').addEventListener('click', (e) => {
+        user_pop_module.pop_open(0);
+    });
+}
+if(document.querySelector('.js-pop-login')){
+    document.querySelector('.js-pop-login').addEventListener('click', (e) => {
+        user_pop_module.pop_open(1);
+    });
+}
+if(document.querySelector('.js-pop-reg')){
+    document.querySelector('.js-pop-reg').addEventListener('click', (e) => {
+        user_pop_module.pop_open(0);
+    });
+}
 
 tips();
 let login = {

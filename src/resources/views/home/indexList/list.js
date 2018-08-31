@@ -3,12 +3,16 @@ import './list.scss';
 // import "@babel/polyfill";
 import {swip} from '../../../../public/js/common';
 import {user_pop_module} from '../../../../public/js/user';
-document.querySelector('.js-pop-login').addEventListener('click', (e) => {
-    user_pop_module.pop_open(1);
-});
-document.querySelector('.js-pop-reg').addEventListener('click', (e) => {
-    user_pop_module.pop_open(0);
-});
+if(document.querySelector('.js-pop-login')){
+    document.querySelector('.js-pop-login').addEventListener('click', (e) => {
+        user_pop_module.pop_open(1);
+    });
+}
+if(document.querySelector('.js-pop-reg')){
+    document.querySelector('.js-pop-reg').addEventListener('click', (e) => {
+        user_pop_module.pop_open(0);
+    });
+}
 swip(
     'swiper-container', true, true, 1, 'slide',
     {

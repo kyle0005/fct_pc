@@ -283,8 +283,10 @@
           .r{
             display: inline-block;
             width:  calc(238/696*100%);
+            color: $color-666;
+            margin-right: calc(50/696*100%);
             .l{
-              color: $color-666;
+              color: $color-333;
               margin-right:  calc(8/238*100%);
             }
           }
@@ -615,54 +617,6 @@
                   color: $color-333;
                 }
               }
-              /*.exp{
-                width: 100%;
-                margin-bottom: 30px;
-                .e-title{
-                  position: relative;
-                  width: 96px;
-                  height: 36px;
-                  line-height: 36px;
-                  color: $color-white;
-                  background-color: $color-8B572A;
-                  font-size: $font-size-t16;
-                  margin-bottom: 8px;
-                  text-align: center;
-                  &:after{
-                    content: '';
-                    position: absolute;
-                    right: -20px;
-                    bottom: 0;
-                    display: inline-block;
-                    height: 36px;
-                    vertical-align: top;
-                    border-left-width: 20px;
-                    border-left-style: solid;
-                    border-left-color: $color-8B572A;
-                    box-sizing: border-box;
-                    border-top-width: 18px !important;
-                    border-top-style: solid !important;
-                    border-top-color: transparent !important;
-                    border-bottom-width: 18px !important;
-                    border-bottom-style: solid !important;
-                    border-bottom-color: transparent !important;
-                  }
-                }
-                .e-con{
-                  width: 100%;
-                  overflow: hidden;
-                  p{
-                    width: 100%;
-                    color: $color-333;
-                    font-size: $font-size-t16;
-                    line-height: 22px;
-                  }
-                  img{
-                    margin-top: 24px;
-                    width: 100%;
-                  }
-                }
-              }*/
               .editor-container{
                 width: 100%;
                 font-size: $font-size-t16;
@@ -711,7 +665,8 @@
                   border-image: url(../../../../public/img/edit_img_bg.png) 20 fill;
                   -webkit-border-image: url(../../../../public/img/edit_img_bg.png) 20 fill;
                   box-sizing: border-box;
-                  margin-bottom: 10px;
+                  width: 60%;
+                  margin: 0 auto 10px;
                   img{
                     width: 100%;
                   }

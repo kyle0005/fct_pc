@@ -63,6 +63,16 @@ input:focus, select:focus, textarea:focus {
   outline: 0
 }
 
+/* 文本文字超过四行以省略号显示 */
+.overTextH5 {
+  @include overTextH(5);
+}
+
+/* 文本文字超过四行以省略号显示 */
+.overTextH4 {
+  @include overTextH(4);
+}
+
 /* 文本文字超过三行以省略号显示 */
 .overTextH3 {
   @include overTextH(3);
