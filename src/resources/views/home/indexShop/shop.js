@@ -1,12 +1,16 @@
 import 'swiper/dist/css/swiper.css';
 import './shop.scss';
 import "@babel/polyfill";
+import LazyLoad from "vanilla-lazyload";
 import {tips, showPop, hidePop, countdown, swip, common} from '../../../../public/js/common';
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
-if(document.querySelector('.js-pop-login')){
-    document.querySelector('.js-pop-login').addEventListener('click', (e) => {
-        user_pop_module.pop_open(1);
+let _loginSel = document.querySelectorAll('.js-pop-login');
+if(_loginSel&&_loginSel.length>0){
+    Array.prototype.forEach.call(_loginSel, (el, index) => {
+        el.addEventListener('click', (e) => {
+            user_pop_module.pop_open(1);
+        });
     });
 }
 if(document.querySelector('.js-pop-reg')){
@@ -154,6 +158,34 @@ let shop = {
 }
 let _pager = document.querySelector('.js-pager');
 _pager.innerHTML = shop.insertPager(data_pager);*/
+
+/* 图片延迟加载 */
+const logEvent = (eventName, element) => {
+    console.log(
+        eventName,
+        element.getAttribute("data-src"),
+        element.getAttribute("src")
+    );
+};
+const lazyLoadOptions = {
+    elements_selector: ".lazy",
+    to_webp: false,
+    callback_enter: element => {
+        logEvent("ENTERED", element);
+    },
+    callback_load: element => {
+        logEvent("LOADED", element);
+    },
+    callback_set: element => {
+        logEvent("SET", element);
+    },
+    callback_error: element => {
+        logEvent("ERROR", element);
+        element.src = "https://placehold.it/220x280?text=Placeholder";
+    }
+};
+document.addEventListener("DOMContentLoaded", new LazyLoad(lazyLoadOptions));
+
 swip(
     'photo-container', false, true, 1, 'fade',
     {
@@ -232,7 +264,7 @@ document.querySelector('.js-cart').addEventListener('click', (e) => {
     );
 });
 document.querySelector('.js-buy').addEventListener('click', (e) => {
-    let _proId = document.querySelector('.js-proid').value;
+    /*let _proId = document.querySelector('.js-proid').value;
     let _specId = '';
     if(document.querySelector('.js-spec')){
         _specId = document.querySelector('.js-spec').value;
@@ -241,7 +273,10 @@ document.querySelector('.js-buy').addEventListener('click', (e) => {
     let _url = shop.buy_url + '?product_id=' + _proId;
         _url += '&spec_id=' + _specId;
         _url += '&buy_number=' + _num;
-    location.href = _url;
+    location.href = _url;*/         /* 购买流程后续上线 */
+    shop.alert({
+        message: '客服热线：0510-87410606<br/>客服微信：fangcuntang0606'
+    })
 });
 
 if(document.querySelector('.js-spec')){

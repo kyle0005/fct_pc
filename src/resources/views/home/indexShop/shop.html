@@ -96,7 +96,7 @@
                             <span class="n">限时购</span><span class="p">低至<small>¥</small>13800.00</span><span class="js-counttime c" data-timenum="300000">距离开抢：<span class="js-d num">00</span>天<span class="js-h num">00</span>时<span class="js-m num">00</span>分<span class="js-s num">00</span>秒</span>
                         </div>
                         <!--<div class="price"><small>¥</small>15800.00</div>-->
-                        <div class="price"><a href="javascript:;" class="link">登录可见价格</a></div>
+                        <div class="price"><a href="javascript:;" class="js-pop-login link">登录可见价格</a></div>
                         <div class="tips"><span class="tip">原人手制</span><span class="tip">限量发行</span><span class="tip">永久保值换购</span></div>
                         <div class="coupon">
                             <span class="get-title">领劵</span><span class="coups"><span class="bor-bef"></span>每满199元减29<span class="bor-aft"></span></span><span class="coups"><span class="bor-bef"></span>每满499元减99<span class="bor-aft"></span></span><span class="coups"><span class="bor-bef"></span>每满999元减199<span class="bor-aft"></span></span><a href="javascript:;" class="js-get-link get-link">立即领取&gt;</a>
@@ -189,8 +189,15 @@
                         <div class="overview">
                             <div class="o-title">采用了原矿紫泥制作而成，壶容量为350cc，此器造型新颖，体态优美，壶身微扁，光洁素雅，耳形把憨厚淳朴，壶流采用双流合一，制作难度较大，出水效果极好，高壶颈，壶口呈坡势，壶盖如草帽，与主题相合，丰富了壶的内涵，设计巧妙，主体与附件比例关系协调得当。</div>
                             <div class="img-container">
-                                <img src="../../../public/img/test5.png" alt="">
-                                <img src="../../../public/img/test5.png" alt="">
+                                <img class="lazy" data-src="../../../public/img/test1.png"/>
+                                <img class="lazy" data-src="../../../public/img/test2.png"/>
+                                <img class="lazy" data-src="../../../public/img/test3.png"/>
+                                <img class="lazy" data-src="../../../public/img/test4.png"/>
+                                <img class="lazy" data-src="../../../public/img/test5.png"/>
+                                <img class="lazy" data-src="../../../public/img/test6.png"/>
+                                <img class="lazy" data-src="../../../public/img/test7.png"/>
+                                <img class="lazy" data-src="../../../public/img/test8.png"/>
+                                <img class="lazy" data-src="../../../public/img/test9.png"/>
                             </div>
                         </div>
                     </div>
@@ -537,6 +544,35 @@
         </div>
       </div>
 	</div>
+    <!-- 注册&登录 弹窗 -->
+    <div class="js-user-pop user-pop hidden">
+        <div class="user-pop-container">
+            <div class="link-container">
+                <a href="javascript:;" class="js-r r cur">快速注册</a>
+                <a href="javascript:;" class="js-l l ">手机号登录</a>
+                <a href="javascript:;" class="js-user-close close">&nbsp;</a>
+            </div>
+            <div class="user-pop-form">
+                <form id="user">
+                    <div class="user-pop-items phone">
+                        <input type="text" name="cellphone" class="js-phone-num-p phone-num" placeholder="请输入手机号码"/>
+                        <a href="javascript:;" class="js-clear-fork-p clear-fork hidden">&nbsp;</a>
+                    </div>
+                    <div class="user-pop-items val">
+                        <div id="captchaReg"></div>
+                    </div>
+                    <div class="user-pop-items msg">
+                        <input type="text" name="sms_code" class="js-msg-num-p msg-num" placeholder="请输入短信验证码"/>
+                        <a href="javascript:;" class="js-get-code-p get-code">获取验证码</a>
+                    </div>
+                    <div class="js-t-tips t-tips hidden"></div>
+                    <a href="javascript:;" class="js-sub-p sub">注册</a>
+                </form>
+            </div>
+            <div class="other">我同意《服务条款》和《方寸堂隐私条款》</div>
+        </div>
+    </div>
+    <script src="http://static.geetest.com/static/tools/gt.js"></script>
     <!-- built files will be auto injected -->
   <script>
       // import ajax from '../../../public/js/ajax';

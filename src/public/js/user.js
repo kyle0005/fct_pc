@@ -62,7 +62,7 @@ const user_pop_module = {
     },
     init: () => {
         /* 弹窗初始化事件 */
-        document.querySelector('.js-close').addEventListener('click', (e) => {
+        document.querySelector('.js-user-close').addEventListener('click', (e) => {
             user_pop_module.pop_close();
         });
         document.querySelector('.js-r').addEventListener('click', (e) => {

@@ -8,9 +8,12 @@ if(document.querySelector('.js-reg')){
         user_pop_module.pop_open(0);
     });
 }
-if(document.querySelector('.js-pop-login')){
-    document.querySelector('.js-pop-login').addEventListener('click', (e) => {
-        user_pop_module.pop_open(1);
+let _loginSel = document.querySelectorAll('.js-pop-login');
+if(_loginSel&&_loginSel.length>0){
+    Array.prototype.forEach.call(_loginSel, (el, index) => {
+        el.addEventListener('click', (e) => {
+            user_pop_module.pop_open(1);
+        });
     });
 }
 if(document.querySelector('.js-pop-reg')){
