@@ -57,29 +57,29 @@
           <div class="photo-container">
             <div class="js-pics swiper-wrapper">
               <div class="swiper-slide">
-                <a href="javascript:;" class="l-items">
-                  <img src="../../../public/img/test4.jpg" alt="">
-                </a>
+                <div class="js-l-items l-items">
+                  <img src="http://malaman.github.io/js-image-zoom/example/1.jpg" alt="">
+                </div>
               </div>
               <div class="swiper-slide">
-                <a href="javascript:;" class="l-items">
+                <div class="js-l-items l-items">
+                  <img src="http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg" alt="">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="js-l-items l-items">
+                  <img src="../../../public/img/test3.png" alt="">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="js-l-items l-items">
+                  <img src="../../../public/img/test4.png" alt="">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="js-l-items l-items">
                   <img src="../../../public/img/test5.png" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="javascript:;" class="l-items">
-                  <img src="../../../public/img/test6.png" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="javascript:;" class="l-items">
-                  <img src="../../../public/img/test5.png" alt="">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="javascript:;" class="l-items">
-                  <img src="../../../public/img/test4.jpg" alt="">
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -419,7 +419,7 @@
               <div class="swiper-slide">
                 <a href="javascript:;" class="l-items">
                   <span class="mark">新品</span>
-                  <img src="../../../public/img/test4.jpg" alt="">
+                  <img src="../../../public/img/test4.png" alt="">
                   <span class="des">
                     <span class="t overText">《壶的名字》作者名字 280CC</span>
                     <span class="v overText">副标题壶的特点制作特色卖点等一行最佳</span>
@@ -458,7 +458,7 @@
               <div class="swiper-slide">
                 <a href="javascript:;" class="l-items">
                   <span class="mark">新品</span>
-                  <img src="../../../public/img/test4.jpg" alt="">
+                  <img src="../../../public/img/test4.png" alt="">
                   <span class="des">
                     <span class="t overText">《壶的名字》作者名字 280CC</span>
                     <span class="v overText">副标题壶的特点制作特色卖点等一行最佳</span>
@@ -544,6 +544,17 @@
         </div>
       </div>
 	</div>
+    <!-- 提示弹窗 -->
+    <div class="js-det-pop det-pop hidden">
+        <div class="det-pop-container">
+            <div class="link-container">
+                联系客服
+                <a href="javascript:;" class="js-det-close close">&nbsp;</a>
+            </div>
+            <div class="text">客服热线：0510-87410606</div>
+            <div class="text">客服微信：fangcuntang0606</div>
+        </div>
+    </div>
     <!-- 注册&登录 弹窗 -->
     <div class="js-user-pop user-pop hidden">
         <div class="user-pop-container">
@@ -579,11 +590,11 @@
       // ajax.ajaxGet();
     let config = {
         pics: [
-            '../../../public/img/test4.jpg',
-            '../../../public/img/test5.png',
-            '../../../public/img/test6.png',
-            '../../../public/img/test5.png',
-            '../../../public/img/test4.jpg'
+            '../../../public/img/test1.png',
+            '../../../public/img/test2.png',
+            '../../../public/img/test3.png',
+            '../../../public/img/test4.png',
+            '../../../public/img/test5.png'
         ],
         'addcart_url': '',
         'fav_url': '',

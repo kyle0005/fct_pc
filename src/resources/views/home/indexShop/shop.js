@@ -2,9 +2,10 @@ import 'swiper/dist/css/swiper.css';
 import './shop.scss';
 import "@babel/polyfill";
 import LazyLoad from "vanilla-lazyload";
-import {tips, showPop, hidePop, countdown, swip, common} from '../../../../public/js/common';
+import {tips, showPop, hidePop, countdown, swip, common, ImageZoom} from '../../../../public/js/common';
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
+
 let _loginSel = document.querySelectorAll('.js-pop-login');
 if(_loginSel&&_loginSel.length>0){
     Array.prototype.forEach.call(_loginSel, (el, index) => {
@@ -148,16 +149,6 @@ let shop = {
         }, 1500);
     }
 };
-/*let data_pager = {
-    'prev' : 0,
-    'current' : 47,
-    'next' : 0,
-    'page_size' : 20,
-    'total_page' : 50,
-    'total' : 1000
-}
-let _pager = document.querySelector('.js-pager');
-_pager.innerHTML = shop.insertPager(data_pager);*/
 
 /* 图片延迟加载 */
 const logEvent = (eventName, element) => {
@@ -210,6 +201,15 @@ swip(
         },
     }
 );
+/*var options = {
+    width: 389,
+    // height: 250,
+    zoomWidth: 500,
+    offset: {vertical: 0, horizontal: 10}
+};
+Array.prototype.forEach.call(document.querySelectorAll('.js-l-items'), (el, index) => {
+    new ImageZoom(el, options);
+});*/
 swip(
     'opt-container', false, false, 4, 'slide',
     {
@@ -274,9 +274,14 @@ document.querySelector('.js-buy').addEventListener('click', (e) => {
         _url += '&spec_id=' + _specId;
         _url += '&buy_number=' + _num;
     location.href = _url;*/         /* 购买流程后续上线 */
-    shop.alert({
-        message: '客服热线：0510-87410606<br/>客服微信：fangcuntang0606'
-    })
+    if(document.querySelector('.js-det-pop').classList.contains('hidden')){
+        document.querySelector('.js-det-pop').classList.remove('hidden');
+    }
+});
+document.querySelector('.js-det-close').addEventListener('click', (e) => {
+    if(!document.querySelector('.js-det-pop').classList.contains('hidden')){
+        document.querySelector('.js-det-pop').classList.add('hidden');
+    }
 });
 
 if(document.querySelector('.js-spec')){

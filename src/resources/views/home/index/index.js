@@ -1,7 +1,7 @@
 import 'swiper/dist/css/swiper.css';
 import './index.scss';
 import "@babel/polyfill";
-import imgs from '../../../../public/js/loadImg';
+// import imgs from '../../../../public/js/loadImg';
 import {countdown, swip, common} from '../../../../public/js/common';
 import {user_pop_module} from '../../../../public/js/user';
 let _loginSel = document.querySelectorAll('.js-pop-login');
