@@ -1,6 +1,6 @@
 import swp from 'swiper';
 /* banner滚动 */
-const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on) => {
+const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on, noSwiping) => {
     new swp('.' + name, {
         autoplay: autoplay,
         loop : loop,
@@ -9,7 +9,8 @@ const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigatio
         fadeEffect: fadeEffect,
         navigation: navigation,
         pagination: pagination,
-        on:on
+        on:on,
+        noSwiping: noSwiping || false
     });
 };
 /* 倒计时ui层 */

@@ -33,7 +33,7 @@
         top: 0;
         height: 100%;
         font-size: 0;
-        .log, .reg{
+        .items{
           position: relative;
           display: inline-block;
           color: $color-white;
@@ -50,13 +50,101 @@
             height: 14px;
             background-color: $color-white;
           }
+          &:last-child{
+            &:after{
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 0;
+              transform: none;
+              width: 0;
+              height: 0;
+              background-color: transparent;
+            }
+          }
         }
-        .ord{
-          display: inline-block;
-          height: 100%;
-          padding: 0 6px;
-          color: $color-white;
-          font-size: $font-size-t14;
+        .manage.items{
+          padding: 0 20px 0 6px;
+          &:before{
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border-top: 4px solid $color-white;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+          }
+          &:hover{
+            .h-l{
+              display: block;
+            }
+          }
+          .shop-name{
+            color: $color-white;
+          }
+          .h-l{
+            position: absolute;
+            top: 92%;
+            left: 0;
+            z-index: 1;
+            background-color: $color-white;
+            border-radius: 5px;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.20);
+            display: none;
+            width: 104px;
+            padding: 20px 0;
+            text-align: center;
+            &:before{
+              content: '';
+              display:block;
+              width:0;
+              height:0;
+              border-width: 0 5px 5px 5px;
+              border-style:solid;
+              border-color: transparent transparent $color-white transparent;
+              position:absolute;
+              top:-5px;
+              left:50%;
+              transform: translateX(-50%);
+            }
+            &:after{
+              content: '';
+              display:block;
+              width:0;
+              height:0;
+              border-width: 0 5px 5px 5px;
+              border-style:solid;
+              border-color: transparent transparent #f8f8f8 transparent;
+              position:absolute;
+              top:-5x;
+              left:50%;
+              transform: translateX(-50%);
+            }
+            .ls{
+              display: block;
+              width: 56px;
+              margin: 0 auto;
+              text-align: left;
+              color: $color-333;
+              font-size: $font-size-t14;
+              line-height: 14px;
+              padding-bottom: 10px;
+              margin-bottom: 10px;
+              border-bottom: 1px solid $color-ccc;
+              &:last-child{
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+              }
+              &:hover{
+                color: $color-8B572A;
+              }
+            }
+          }
         }
       }
     }

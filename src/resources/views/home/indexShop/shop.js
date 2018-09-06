@@ -199,9 +199,10 @@ swip(
         slideChange: function(){
             // console.log(this.activeIndex + ':' + this.realIndex)
         },
-    }
+    },
+    true
 );
-/*var options = {
+let options = {
     width: 389,
     // height: 250,
     zoomWidth: 500,
@@ -209,7 +210,7 @@ swip(
 };
 Array.prototype.forEach.call(document.querySelectorAll('.js-l-items'), (el, index) => {
     new ImageZoom(el, options);
-});*/
+});
 swip(
     'opt-container', false, false, 4, 'slide',
     {
