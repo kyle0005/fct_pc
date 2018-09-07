@@ -1,8 +1,9 @@
 import './login.scss';
-import {tips, showPop, hidePop, countdown, swip, common} from '../../../../public/js/common';
+import {tips, showPop, hidePop, countdown, swip, common, lazy} from '../../../../public/js/common';
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
 /* 加载全局注册模块 */
+user_pop_module.init();
 if(document.querySelector('.js-reg')){
     document.querySelector('.js-reg').addEventListener('click', (e) => {
         user_pop_module.pop_open(0);
@@ -32,9 +33,23 @@ let login = {
     before: function(){
         console.log('before')
     },
+    login_before: function(){
+        let _dots = document.querySelector('.js-l-dots');
+        if(_dots&&_dots.classList.contains('hidden')){
+            _dots.classList.remove('hidden');
+        }
+    },
+    login_success: function(data, paras){
+        window.location.reload();
+    },
+    login_error: function(){
+        let _dots = document.querySelector('.js-l-dots');
+        if(_dots&&!_dots.classList.contains('hidden')){
+            _dots.classList.add('hidden');
+        }
+    },
     success: function(data, paras){
         console.log('success');
-        window.location.reload();
     },
     val_suc: function(data){
         console.log('val success')
@@ -43,6 +58,10 @@ let login = {
         console.log('error')
     },
     alert: function(data){
+        let _dots = document.querySelector('.js-l-dots');
+        if(_dots&&!_dots.classList.contains('hidden')){
+            _dots.classList.add('hidden');
+        }
         showPop(data.message);
         setTimeout(function () {
             hidePop();
@@ -67,10 +86,12 @@ let login = {
         }).onSuccess(function(){
             login.validate_flag = captchaObj.getValidate();
         }).onError(function(){
-
+            captchaObj.reset();
         })
     }
 };
+/* 图片延迟加载 */
+lazy();
 document.querySelector('.js-get-code').addEventListener('click', (e) => {
     if(login.prev_click){
         return;
@@ -153,9 +174,9 @@ document.querySelector('.js-login').addEventListener('click', (e) => {
         ajaxPost(
             login.login_url,
             formData.serializeForm('quickLogin'),
-            login.success,
-            login.before,
-            login.error,
+            login.login_success,
+            login.login_before,
+            login.login_error,
             {},
             login.alert
         );

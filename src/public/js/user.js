@@ -10,15 +10,28 @@ const user_pop_module = {
         before: function(){
             console.log('before')
         },
+        login_before: function(){
+            let _dots = document.querySelector('.js-dots');
+            if(_dots&&_dots.classList.contains('hidden')){
+                document.querySelector('.js-dots').classList.remove('hidden');
+            }
+        },
+        login_success: function(data, paras){
+            window.location.reload();
+        },
+        login_error: function(){
+            let _dots = document.querySelector('.js-dots');
+            if(_dots&&!_dots.classList.contains('hidden')){
+                _dots.classList.add('hidden');
+            }
+        },
         success: function(data, paras){
-            console.log('success')
             window.location.reload();
         },
         val_suc: function(data){
             console.log('val success')
         },
         error: function(){
-            console.log('error')
         },
         alert: function(data){
             setTimeout(function () {
@@ -27,6 +40,10 @@ const user_pop_module = {
             }, 1500);
         },
         tips: function(data){
+            let _dots = document.querySelector('.js-dots');
+            if(_dots&&!_dots.classList.contains('hidden')){
+                _dots.classList.add('hidden');
+            }
             if(document.querySelector('.js-t-tips').classList.contains('hidden')){
                 document.querySelector('.js-t-tips').classList.remove('hidden');
                 document.querySelector('.js-t-tips').innerHTML = data.message;
@@ -56,7 +73,7 @@ const user_pop_module = {
             }).onSuccess(function(){
                 user_pop_module.user_pop_data.validate_flag = captchaObj.getValidate();
             }).onError(function(){
-
+                captchaObj.reset();
             })
         }
     },
@@ -161,21 +178,14 @@ const user_pop_module = {
                 ajaxPost(
                     user_pop_module.user_pop_data.login_url,
                     formData.serializeForm('user'),
-                    user_pop_module.user_pop_data.success,
-                    user_pop_module.user_pop_data.before,
-                    user_pop_module.user_pop_data.error,
+                    user_pop_module.user_pop_data.login_success,
+                    user_pop_module.user_pop_data.login_before,
+                    user_pop_module.user_pop_data.login_error,
                     {},
-                    user_pop_module.user_pop_data.alert
+                    user_pop_module.user_pop_data.tips
                 );
             }
         });
-        ajaxGet(
-            user_pop_module.user_pop_data.gt_url + "?t=" + (new Date()).getTime(),
-            user_pop_module.user_pop_data.gt_validate_succ,
-            user_pop_module.user_pop_data.before,
-            user_pop_module.user_pop_data.error,
-            'json'
-        );
     },
     pop_open: (flag) => {
         /* 打开弹窗 */
@@ -187,17 +197,23 @@ const user_pop_module = {
             if(!document.querySelector('.js-r').classList.contains('cur')){
                 document.querySelector('.js-r').classList.add('cur');
                 document.querySelector('.js-l').classList.remove('cur');
-                document.querySelector('.js-sub-p').innerHTML = '注册';
+                document.querySelector('.js-sub-p').innerHTML = '注册<span class="js-dots hidden">...</span>';
             }
         }else if(parseInt(flag) === 1){
             /* 登录 */
             if(!document.querySelector('.js-l').classList.contains('cur')){
                 document.querySelector('.js-l').classList.add('cur');
                 document.querySelector('.js-r').classList.remove('cur');
-                document.querySelector('.js-sub-p').innerHTML = '登录';
+                document.querySelector('.js-sub-p').innerHTML = '登录<span class="js-dots hidden">...</span>';
             }
         }
-        user_pop_module.init();
+        ajaxGet(
+            user_pop_module.user_pop_data.gt_url + "?t=" + (new Date()).getTime(),
+            user_pop_module.user_pop_data.gt_validate_succ,
+            user_pop_module.user_pop_data.before,
+            user_pop_module.user_pop_data.error,
+            'json'
+        );
 
     },
     pop_close: () => {

@@ -261,6 +261,7 @@ const ajaxPost = (url, data, callback, before, error, paras, alert, upload) => {
                 data = JSON.parse(data);
                 if(parseInt(data.code) == 200 && callback){
                     callback(data, paras);
+                    return;
                 }
                 if(data.message && data.message !== null && data.message !== '' && alert){
                     alert(data);

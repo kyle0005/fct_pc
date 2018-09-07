@@ -1,8 +1,9 @@
 import 'swiper/dist/css/swiper.css';
 import './list.scss';
 // import "@babel/polyfill";
-import {swip} from '../../../../public/js/common';
+import {swip, lazy} from '../../../../public/js/common';
 import {user_pop_module} from '../../../../public/js/user';
+user_pop_module.init();
 let _loginSel = document.querySelectorAll('.js-pop-login');
 if(_loginSel&&_loginSel.length>0){
     Array.prototype.forEach.call(_loginSel, (el, index) => {
@@ -16,8 +17,14 @@ if(document.querySelector('.js-pop-reg')){
         user_pop_module.pop_open(0);
     });
 }
+lazy();
 swip(
-    'swiper-container', true, true, 1, 'slide',
+    'swiper-container', true, true, 1,
+    {
+        loadPrevNext: true,
+        loadPrevNextAmount: 1   //提前1个slide加载图片
+    },
+    'slide',
     {
         crossFade: false,
     },
@@ -31,10 +38,6 @@ swip(
         type: 'bullets',
         renderBullet: function (index, className) {
             return '<span class="en-pagination ' + className + '"></span>';
-        },
-        lazy: {
-            loadPrevNext: true,
-            loadPrevNextAmount: 1   //提前1个slide加载图片
         },
     },
     {

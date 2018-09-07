@@ -15,8 +15,8 @@
         top: 0;
         height: 100%;
         .title{
-          color: $color-white;
-          font-size: $font-size-t14;
+          color: $color-f5f5f5;
+          font-size: $font-size-t12;
         }
         .tip{
           display: inline-block;
@@ -24,7 +24,7 @@
           background: url("../../../../public/img/icon_notice.png") no-repeat 25px center;
           background-size: 16px;
           color: $color-C99F4F;
-          font-size: $font-size-t14;
+          font-size: $font-size-t12;
         }
       }
       .r{
@@ -36,10 +36,10 @@
         .items{
           position: relative;
           display: inline-block;
-          color: $color-white;
+          color: $color-f5f5f5;
           height: 100%;
           padding: 0 6px;
-          font-size: $font-size-t14;
+          font-size: $font-size-t12;
           &:after{
             content: '';
             position: absolute;
@@ -48,7 +48,7 @@
             transform: translateY(-50%);
             width: 1px;
             height: 14px;
-            background-color: $color-white;
+            background-color: $color-f5f5f5;
           }
           &:last-child{
             &:after{
@@ -84,13 +84,13 @@
             }
           }
           .shop-name{
-            color: $color-white;
+            color: $color-f5f5f5;
           }
           .h-l{
             position: absolute;
             top: 92%;
             left: 0;
-            z-index: 1;
+            z-index: 2;
             background-color: $color-white;
             border-radius: 5px;
             box-shadow: 0 1px 4px 0 rgba(0,0,0,0.20);
@@ -105,7 +105,7 @@
               height:0;
               border-width: 0 5px 5px 5px;
               border-style:solid;
-              border-color: transparent transparent $color-white transparent;
+              border-color: transparent transparent $color-f5f5f5 transparent;
               position:absolute;
               top:-5px;
               left:50%;
@@ -130,7 +130,7 @@
               margin: 0 auto;
               text-align: left;
               color: $color-333;
-              font-size: $font-size-t14;
+              font-size: $font-size-t12;
               line-height: 14px;
               padding-bottom: 10px;
               margin-bottom: 10px;

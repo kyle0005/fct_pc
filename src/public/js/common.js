@@ -1,16 +1,47 @@
 import swp from 'swiper';
+import LazyLoad from "vanilla-lazyload";
+/* 图片延迟加载 */
+const lazy = () => {
+    const logEvent = (eventName, element) => {
+        console.log(
+            eventName,
+            element.getAttribute("data-src"),
+            element.getAttribute("src")
+        );
+    };
+    const lazyLoadOptions = {
+        elements_selector: ".lazy",
+        to_webp: false,
+        callback_enter: element => {
+            logEvent("ENTERED", element);
+        },
+        callback_load: element => {
+            logEvent("LOADED", element);
+        },
+        callback_set: element => {
+            logEvent("SET", element);
+        },
+        callback_error: element => {
+            logEvent("ERROR", element);
+            element.src = "https://placehold.it/220x280?text=Placeholder";
+        }
+    };
+    document.addEventListener("DOMContentLoaded", new LazyLoad(lazyLoadOptions));
+};
 /* banner滚动 */
-const swip = (name, autoplay, loop, slidesPerView, effect, fadeEffect, navigation, pagination, on, noSwiping) => {
+const swip = (name, autoplay, loop, slidesPerView, lazy, effect, fadeEffect, navigation, pagination, on, noSwiping) => {
     new swp('.' + name, {
         autoplay: autoplay,
         loop : loop,
         slidesPerView: slidesPerView,
+        lazy: lazy,
         effect: effect,
         fadeEffect: fadeEffect,
         navigation: navigation,
         pagination: pagination,
         on:on,
-        noSwiping: noSwiping || false
+        noSwiping: noSwiping || false,
+
     });
 };
 /* 倒计时ui层 */
@@ -323,7 +354,7 @@ const ImageZoom = (container, opts) => {
     }
 };
 
-export {tips, showPop, hidePop, countdown, swip, common, ImageZoom};
+export {tips, showPop, hidePop, countdown, swip, common, ImageZoom, lazy};
 
 const chainAsync = fns => { let curr = 0; const next = () => fns[curr++](next); next(); };
 /*

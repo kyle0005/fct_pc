@@ -1,11 +1,10 @@
 import 'swiper/dist/css/swiper.css';
 import './shop.scss';
 import "@babel/polyfill";
-import LazyLoad from "vanilla-lazyload";
-import {tips, showPop, hidePop, countdown, swip, common, ImageZoom} from '../../../../public/js/common';
+import {tips, showPop, hidePop, countdown, swip, common, ImageZoom, lazy} from '../../../../public/js/common';
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
-
+user_pop_module.init();
 let _loginSel = document.querySelectorAll('.js-pop-login');
 if(_loginSel&&_loginSel.length>0){
     Array.prototype.forEach.call(_loginSel, (el, index) => {
@@ -151,34 +150,15 @@ let shop = {
 };
 
 /* 图片延迟加载 */
-const logEvent = (eventName, element) => {
-    console.log(
-        eventName,
-        element.getAttribute("data-src"),
-        element.getAttribute("src")
-    );
-};
-const lazyLoadOptions = {
-    elements_selector: ".lazy",
-    to_webp: false,
-    callback_enter: element => {
-        logEvent("ENTERED", element);
-    },
-    callback_load: element => {
-        logEvent("LOADED", element);
-    },
-    callback_set: element => {
-        logEvent("SET", element);
-    },
-    callback_error: element => {
-        logEvent("ERROR", element);
-        element.src = "https://placehold.it/220x280?text=Placeholder";
-    }
-};
-document.addEventListener("DOMContentLoaded", new LazyLoad(lazyLoadOptions));
+lazy();
 
 swip(
-    'photo-container', false, true, 1, 'fade',
+    'photo-container', false, true, 1,
+    {
+        loadPrevNext: true,
+        loadPrevNextAmount: 1   //提前1个slide加载图片
+    },
+    'fade',
     {
         crossFade: true,
     },
@@ -189,10 +169,6 @@ swip(
         type: 'bullets',
         renderBullet: function (index, className) {
             return '<span class="en-pagination ' + className + '"><img src="' + shop.pics[index] + '" class="bu-img"/></span>';
-        },
-        lazy: {
-            loadPrevNext: true,
-            loadPrevNextAmount: 1   //提前1个slide加载图片
         },
     },
     {
@@ -212,7 +188,9 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-l-items'), (el, inde
     new ImageZoom(el, options);
 });
 swip(
-    'opt-container', false, false, 4, 'slide',
+    'opt-container', false, false, 4,
+    true,
+    'slide',
     {
         crossFade: false,
     },

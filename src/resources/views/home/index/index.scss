@@ -224,7 +224,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: calc(440/512*100%);
+            width: calc(256/512*100%);
           }
           .quota{
             position: absolute;
@@ -328,7 +328,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: calc(440/512*100%);
+            width: calc(256/512*100%);
           }
         }
 
@@ -375,7 +375,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: calc(440/512*100%);
+            width: calc(256/512*100%);
           }
           .quota{
             position: absolute;
@@ -440,7 +440,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: calc(440/512*100%);
+            width: calc(256/512*100%);
           }
         }
       }
@@ -511,7 +511,7 @@
   }
   .optimization{
     position: relative;
-    width: calc(1556/1920*100%);
+    width: 1167px;;
     margin: 0 auto calc(60/1920*100%);
     .title{
       position: relative;
@@ -759,7 +759,7 @@
   }
   .act{
     position: relative;
-    width: calc(1556/1920*100%);
+    width: 1167px;
     margin: 0 auto calc(60/1920*100%);
     .title{
       position: relative;

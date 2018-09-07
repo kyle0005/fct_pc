@@ -1,7 +1,7 @@
 @import "./src/public/css/common";
 @import "./src/public/css/header";
 @import "./src/public/css/footer";
-.shop-container{
+.artist-container{
   @extend %page;
   .banner{
     position: relative;
@@ -59,9 +59,151 @@
       }
     }
   }
-  .main{
-    width: 1400px;
-    margin: 47px auto 0;
-
+  .act{
+    position: relative;
+    width: 1090px;
+    margin: calc(47/1920*100%) auto;
+    .title{
+      position: relative;
+      width: $pahe-width-base;
+      margin: 0 auto calc(16/1400*100%);
+      .m{
+        margin-right: 16px;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        font-size: $font-size-t26;
+        color: $color-333;
+      }
+      .s{
+        display: inline-block;
+        height: 12px;
+        line-height: 12px;
+        font-size: $font-size-t12;
+        color: $color-929BB6;
+      }
+      .more{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        display: inline-block;
+        padding-right: 22px;
+        transform: translateY(-50%);
+        font-size: $font-size-t16;
+        line-height: 22px;
+        background: url("../../../../public/img/more.png") no-repeat center right;
+        background-size: 16px 16px;
+      }
+    }
+    .main{
+      width: 100%;
+      .items{
+        position: relative;
+        width: 100%;
+        margin-bottom: calc(30/1400*100%);
+        .photo-container{
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 1;
+          display: inline-block;
+          width: calc(180/1400*100%);
+          padding-bottom: calc(200/1400*100%);
+          .photo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .content{
+          position: relative;
+          display: inline-block;
+          width: calc(1247/1400*100%);
+          margin-left: calc(154/1400*100%);
+          margin-top: calc(40/1400*100%);
+          padding-bottom: calc(180/1400*100%);
+          background: rgba(201,159,79,0.05);
+          .inner{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            .ti{
+              display: inline-block;
+              margin-top: calc(20/1400*100%);
+              margin-left: calc(42/1247*100%);
+              font-size: $font-size-t20;
+              color: $color-333;
+              letter-spacing: 0;
+              line-height: 20px;
+            }
+            .vti{
+              display: inline-block;
+              margin-left: calc(10/1247*100%);
+              font-size: $font-size-t14;
+              color: $color-ccc;
+              letter-spacing: 0;
+              line-height: 14px;
+            }
+            .msg{
+              display: block;
+              margin-top: calc(12/1400*100%);
+              margin-left: calc(42/1247*100%);
+              margin-right: calc(32/1247*100%);
+              font-size: $font-size-t14;
+              color: $color-C99F4F;
+              letter-spacing: 0;
+            }
+            .intro{
+              margin-top: calc(12/1400*100%);
+              margin-left: calc(42/1247*100%);
+              margin-right: calc(32/1247*100%);
+              font-size: $font-size-t14;
+              color: $color-2a2a2a;
+              letter-spacing: 0;
+              line-height: 20px;
+            }
+          }
+        }
+        .works{
+          display: block;
+          margin-left: calc(154/1400*100%);
+          margin-top: calc(-20/1400*100%);
+          width: calc(1163/1400*100%);
+          padding: 0 calc(42/1400*100%);
+          .works-item{
+            display: inline-block;
+            width: calc(120/1163*100%);
+            margin-right: calc(40/1163*100%);
+            .w-l-container{
+              position: relative;
+              display: inline-block;
+              width: 100%;
+              padding-bottom: 100%;
+              .w-l{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .w-l-ti{
+              display: block;
+              margin-top: calc(8/120*100%);;
+              width: 100%;
+              font-size: $font-size-t14;
+              color: $color-333;
+              letter-spacing: 0;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
   }
 }
