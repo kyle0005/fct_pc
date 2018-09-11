@@ -579,21 +579,29 @@
           }
           .des{
             display: block;
-            padding: 20px 5px;
-            width: calc(100% - 10px);
-            text-align: center;
+            padding: 20px;
+            width: calc(100% - 40px);
             font-size: $font-size-t16;
             line-height: 22px;
             height: 52px;
             background-color: $color-fafafa;
-            .t{
+            .ti{
               display: block;
               color: $color-333;
               margin-bottom: 8px;
             }
-            .v{
+            .vti{
               display: block;
               color: $color-999;
+              .aut{
+                display: inline-block;
+                width: 50%;
+              }
+              .vol{
+                display: inline-block;
+                width: 50%;
+                text-align: right;
+              }
             }
           }
         }
@@ -1068,7 +1076,6 @@
               font-size: $font-size-t16;
               line-height: 22px;
               color: $color-333;
-              text-align: center;
             }
             .vti{
               display: block;
@@ -1078,8 +1085,17 @@
               transform: translateX(-50%);
               width: 90%;
               font-size: $font-size-t16;
-              line-height: 22px;
+              line-height: 16px;
               color: $color-999;
+              .aut{
+                display: inline-block;
+                width: 50%;
+              }
+              .vol{
+                display: inline-block;
+                width: 50%;
+                text-align: right;
+              }
             }
           }
           &:nth-child(3n){

@@ -22,10 +22,10 @@
   .detail{
     position: relative;
     width: $pahe-width-base;
-    margin: 0 auto 50px;
-    padding-bottom: 50px;
+    margin: 0 auto 30px;
     .photo-swp{
       position: relative;
+      float: left;
       width: calc(500/1400*100%);
       padding-bottom:calc(500/1400*100%);
       z-index: 2;
@@ -85,17 +85,11 @@
       }
     }
     .pro-detail{
-      position: absolute;
-      top: 0;
-      right: 0;
+      position: relative;
       width: calc(736/1400*100%);
-      padding-bottom: calc(500/1400*100%);
+      margin-left: calc(664/1400*100%);
       .inner{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        position: relative;
         .product{
           width: 100%;
           margin-bottom: calc(16/736*100%);
@@ -405,7 +399,6 @@
           }
         }
       }
-
     }
   }
   .main{
@@ -497,44 +490,71 @@
       width: calc(1000/1400*100%);
       .inner{
         width: 100%;
-        .tabs{
+        .tabs-container{
           width: 100%;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          flex-wrap: wrap;
-          .tab{
-            -moz-box-flex: 1.0; /* Firefox */
-            -webkit-box-flex: 1.0; /* Safari 和 Chrome */
-            box-flex: 1.0;
-            width: 20%;
-            height: 60px;
-            .link{
-              position: relative;
-              display: block;
-              width: 100%;
-              height: 100%;
-              line-height: 60px;
-              text-align: center;
-              font-size: $font-size-t16;
-              color: $color-999;
-              background-color: $color-f3f3f3;
-            }
+          background-color: $color-f3f3f3;
+          .buy-now{
+            display: none;
           }
-          .tab.chosen{
-            .link{
-              color: $color-333;
-              background-color: $color-white;
-              &:before{
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
+          .tabs{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            .tab{
+              -moz-box-flex: 1.0; /* Firefox */
+              -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+              box-flex: 1.0;
+              width: 20%;
+              height: 60px;
+              .link{
+                position: relative;
+                display: block;
                 width: 100%;
-                height: 4px;
-                background-color: $color-333;
+                height: 100%;
+                line-height: 60px;
+                text-align: center;
+                font-size: $font-size-t16;
+                color: $color-999;
+                background-color: $color-f3f3f3;
               }
             }
+            .tab.chosen{
+              .link{
+                color: $color-333;
+                background-color: $color-white;
+                &:before{
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 4px;
+                  background-color: $color-333;
+                }
+              }
+            }
+          }
+        }
+        .tabs-container.fixed{
+          position: fixed;
+          top: 0;
+          left: 50%;
+          z-index: 2;
+          transform: translateX(-50%);
+          width: 1090px;
+          .buy-now{
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            @include wei-bg-btn(120px, 40px, $font-size-t16, $color-white, $color-333, $color-333, 0);
+            text-align: center;
+          }
+          .tabs{
+            margin-left: calc(400/1400*100%);
+            width: calc(1000/1400*100%);
           }
         }
         .tabs-cons{

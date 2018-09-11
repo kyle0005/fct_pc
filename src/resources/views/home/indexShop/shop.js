@@ -1,7 +1,7 @@
 import 'swiper/dist/css/swiper.css';
 import './shop.scss';
 import "@babel/polyfill";
-import {tips, showPop, hidePop, countdown, swip, common, ImageZoom, lazy} from '../../../../public/js/common';
+import {tips, showPop, hidePop, countdown, swip, common, ImageZoom, lazy, tools} from '../../../../public/js/common';
 import {ajaxGet, ajaxPost, formData} from '../../../../public/js/ajax';
 import {user_pop_module} from '../../../../public/js/user';
 user_pop_module.init();
@@ -242,8 +242,25 @@ document.querySelector('.js-cart').addEventListener('click', (e) => {
         shop.alert()
     );
 });
-document.querySelector('.js-buy').addEventListener('click', (e) => {
-    /*let _proId = document.querySelector('.js-proid').value;
+Array.prototype.forEach.call(document.querySelectorAll('.js-buy'), (el, index) => {
+    el.addEventListener('click', (e) => {
+        /*let _proId = document.querySelector('.js-proid').value;
+        let _specId = '';
+        if(document.querySelector('.js-spec')){
+            _specId = document.querySelector('.js-spec').value;
+        }
+        let _num = document.querySelector('.js-inp').value;
+        let _url = shop.buy_url + '?product_id=' + _proId;
+            _url += '&spec_id=' + _specId;
+            _url += '&buy_number=' + _num;
+        location.href = _url;*/         /* 购买流程后续上线 */
+        if(document.querySelector('.js-det-pop').classList.contains('hidden')){
+            document.querySelector('.js-det-pop').classList.remove('hidden');
+        }
+    });
+});
+/*document.querySelector('.js-buy').addEventListener('click', (e) => {
+    /!*let _proId = document.querySelector('.js-proid').value;
     let _specId = '';
     if(document.querySelector('.js-spec')){
         _specId = document.querySelector('.js-spec').value;
@@ -252,11 +269,11 @@ document.querySelector('.js-buy').addEventListener('click', (e) => {
     let _url = shop.buy_url + '?product_id=' + _proId;
         _url += '&spec_id=' + _specId;
         _url += '&buy_number=' + _num;
-    location.href = _url;*/         /* 购买流程后续上线 */
+    location.href = _url;*!/         /!* 购买流程后续上线 *!/
     if(document.querySelector('.js-det-pop').classList.contains('hidden')){
         document.querySelector('.js-det-pop').classList.remove('hidden');
     }
-});
+});*/
 document.querySelector('.js-det-close').addEventListener('click', (e) => {
     if(!document.querySelector('.js-det-pop').classList.contains('hidden')){
         document.querySelector('.js-det-pop').classList.add('hidden');
@@ -288,8 +305,17 @@ document.querySelector('.js-minus').addEventListener('click', (e) => {
 
 });
 
+let _tabs = document.querySelector('.js-tabs-container'), _tabs_top = _tabs.getBoundingClientRect().top + window.pageYOffset - document.body.clientTop;
+document.addEventListener('scroll', (e) => {
+    if(_tabs_top <= tools.getScrollTop()){
+        _tabs.classList.add('fixed');
+    }else {
+        _tabs.classList.remove('fixed');
+    }
+});
 Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) => {
     el.addEventListener('click', (e) => {
+        tools.animate(document, {scrollTop: _tabs_top}, 400,'ease-out');
         Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (e, ind) => {
             e.classList.remove('chosen');
         });
