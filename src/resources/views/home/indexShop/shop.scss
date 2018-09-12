@@ -407,94 +407,15 @@
     margin: 0 auto;
     .left{
       float: left;
-      width: calc(380/1400*100%);
-      margin-right: calc(20/1400*100%);
-      .hot{
-        width: 100%;
-        margin-bottom: 42px;
-        border: 1px solid $color-eee;
-        .title{
-          width: 100%;
-          color: $color-333;
-          font-size: $font-size-t16;
-          line-height: 57px;
-          text-align: center;
-          background-color: $color-eee;
-          margin-bottom: 25px;
-        }
-        .hot-item{
-          position: relative;
-          display: block;
-          width: 100%;
-          margin-bottom: 24px;
-          text-align: center;
-          img{
-            margin: 0 auto 8px;
-            width: 250px;
-            height: 250px;
-          }
-          .info{
-            display: block;
-            margin: 0 auto;
-            font-size: $font-size-t14;
-            line-height: 20px;
-            text-align: center;
-          }
-        }
-      }
-      .art{
-        width: 100%;
-        margin-bottom: 42px;
-        .title{
-          width: 100%;
-          color: $color-333;
-          font-size: $font-size-t26;
-          line-height: 60px;
-          border-bottom: 1px solid $color-eee;
-          margin-bottom: 25px;
-        }
-        .art-item{
-          position: relative;
-          display: block;
-          width: 100%;
-          margin-bottom: 24px;
-          img{
-            width: 120px;
-            height: 120px;
-          }
-          .info{
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            display: block;
-            width: 239px;
-            .t{
-              display: block;
-              font-size: $font-size-t16;
-              line-height: 22px;
-              margin-bottom: 10px;
-            }
-            .v{
-              display: block;
-              font-size: $font-size-t16;
-              line-height: 22px;
-              color: $color-999;
-            }
-          }
-        }
-      }
-    }
-    .right{
-      float: left;
       width: calc(1000/1400*100%);
       .inner{
         width: 100%;
         .tabs-container{
           width: 100%;
-          background-color: $color-f3f3f3;
-          .buy-now{
-            display: none;
+          .btn-container{
+            .buy-now{
+              display: none;
+            }
           }
           .tabs{
             width: 100%;
@@ -503,11 +424,22 @@
             align-items: center;
             flex-wrap: wrap;
             .tab{
+              position: relative;
               -moz-box-flex: 1.0; /* Firefox */
               -webkit-box-flex: 1.0; /* Safari 和 Chrome */
               box-flex: 1.0;
               width: 20%;
               height: 60px;
+              &:before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                height: 60px;
+                width: 1px;
+                background-color: $color-f3f3f3;
+              }
               .link{
                 position: relative;
                 display: block;
@@ -544,16 +476,33 @@
           z-index: 2;
           transform: translateX(-50%);
           width: 1090px;
-          .buy-now{
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            @include wei-bg-btn(120px, 40px, $font-size-t16, $color-white, $color-333, $color-333, 0);
+          padding: 0 calc((100% - 1090px)/2);
+          border-bottom: 1px solid $color-f3f3f3;
+          .btn-container{
+            position: relative;
+            display: inline-block;
+            margin-right: calc((100% - 1090px)/2);
+            width: calc(400/1400*100%);
+            height: 60px;
             text-align: center;
+            background-color: $color-f3f3f3;
+            &:after{
+              content: '';
+              position: absolute;
+              top: 0;
+              right: -1px;
+              width: 1px;
+              height: 100%;
+              background-color: $color-f3f3f3;
+            }
+            .buy-now{
+              margin: 10px auto;
+              @include wei-bg-btn(120px, 40px, $font-size-t16, $color-white, $color-333, $color-333, 0);
+              text-align: center;
+            }
           }
           .tabs{
-            margin-left: calc(400/1400*100%);
+            float: left;
             width: calc(1000/1400*100%);
           }
         }
@@ -563,10 +512,13 @@
             display: none;
             width: 100%;
             .overview{
+              position: relative;
               width: 100%;
+              padding-top: 20px;
               .o-title{
+                position: relative;
                 width: calc(100% - 40px);
-                margin: 20px 0;
+                margin-bottom: 20px;
                 padding: 20px;
                 background-color: $color-fafafa;
                 font-size: $font-size-t16;
@@ -952,6 +904,86 @@
           }
           .con.chosen{
             display: block;
+          }
+        }
+      }
+    }
+    .right{
+      float: left;
+      width: calc(380/1400*100%);
+      margin-left: calc(20/1400*100%);
+      .hot{
+        width: 100%;
+        margin-bottom: 42px;
+        border: 1px solid $color-eee;
+        .title{
+          width: 100%;
+          color: $color-333;
+          font-size: $font-size-t16;
+          line-height: 57px;
+          text-align: center;
+          background-color: $color-eee;
+          margin-bottom: 25px;
+        }
+        .hot-item{
+          position: relative;
+          display: block;
+          width: 100%;
+          margin-bottom: 24px;
+          text-align: center;
+          img{
+            margin: 0 auto 8px;
+            width: 250px;
+            height: 250px;
+          }
+          .info{
+            display: block;
+            margin: 0 auto;
+            font-size: $font-size-t14;
+            line-height: 20px;
+            text-align: center;
+          }
+        }
+      }
+      .art{
+        width: 100%;
+        margin-bottom: 42px;
+        .title{
+          width: 100%;
+          color: $color-333;
+          font-size: $font-size-t26;
+          line-height: 60px;
+          border-bottom: 1px solid $color-eee;
+          margin-bottom: 25px;
+        }
+        .art-item{
+          position: relative;
+          display: block;
+          width: 100%;
+          margin-bottom: 24px;
+          img{
+            width: 120px;
+            height: 120px;
+          }
+          .info{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            display: block;
+            width: 239px;
+            .t{
+              display: block;
+              font-size: $font-size-t16;
+              line-height: 22px;
+              margin-bottom: 10px;
+            }
+            .v{
+              display: block;
+              font-size: $font-size-t16;
+              line-height: 22px;
+              color: $color-999;
+            }
           }
         }
       }

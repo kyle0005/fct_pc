@@ -307,7 +307,7 @@ document.querySelector('.js-minus').addEventListener('click', (e) => {
 
 let _tabs = document.querySelector('.js-tabs-container'), _tabs_top = _tabs.getBoundingClientRect().top + window.pageYOffset - document.body.clientTop;
 document.addEventListener('scroll', (e) => {
-    if(_tabs_top <= tools.getScrollTop()){
+    if(_tabs_top < tools.getScrollTop()){
         _tabs.classList.add('fixed');
     }else {
         _tabs.classList.remove('fixed');
@@ -315,7 +315,9 @@ document.addEventListener('scroll', (e) => {
 });
 Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) => {
     el.addEventListener('click', (e) => {
-        tools.animate(document, {scrollTop: _tabs_top}, 400,'ease-out');
+        if(_tabs.classList.contains('fixed')){
+            window.scrollTo(0,_tabs_top);
+        }
         Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (e, ind) => {
             e.classList.remove('chosen');
         });
