@@ -322,7 +322,6 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) =
             e.classList.remove('chosen');
         });
         el.classList.add('chosen');
-
         Array.prototype.forEach.call(document.querySelectorAll('.js-con'), (e, ind) => {
             e.classList.remove('chosen');
         });
