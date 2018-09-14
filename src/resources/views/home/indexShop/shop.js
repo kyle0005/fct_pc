@@ -329,6 +329,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.js-tab'), (el, index) =
         if(index === 4){
             ajaxGet(shop.discuss_url, shop.pagerSuccess, shop.pagerBefore, shop.pagerError)
         }
+
     });
 });
 
